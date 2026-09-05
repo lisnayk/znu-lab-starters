@@ -1,0 +1,5 @@
+PASS 200 /
+PASS 200 /api/env
+PASS 200 /healthz
+PASS 404 /missing
+PASS 405 POST /healthz

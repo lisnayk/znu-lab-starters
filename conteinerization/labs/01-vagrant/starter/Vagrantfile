@@ -1,0 +1,24 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/ubuntu2204"
+  config.vm.box_version = "4.3.12"
+  config.vm.hostname = "vc-lab1"
+  config.vm.network "forwarded_port",
+    guest: 8000, host: 8080, host_ip: "127.0.0.1"
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = 2048
+    vb.cpus = 2
+  end
+  config.vm.provision "shell", privileged: false, inline: "mkdir -p /home/vagrant/lab1"
+  # Передаємо тільки файли проєкту з хоста.
+  %w[main.py envinfo.py requirements.txt check.py expected.txt run.sh .env].each do |name|
+    config.vm.provision "file", source: name, destination: "/home/vagrant/lab1/#{name}"
+  end
+  config.vm.provision "shell", inline: <<-SHELL
+    set -eu
+    apt-get update
+    apt-get install -y python3-venv
+    chmod 600 /home/vagrant/lab1/.env
+    su - vagrant -c 'cd ~/lab1 && python3 -m venv .venv && .venv/bin/python -m pip install -r requirements.txt'
+  SHELL
+end
