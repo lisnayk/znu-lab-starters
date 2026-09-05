@@ -4,6 +4,16 @@
 Після кожного відкрийте GET / у браузері, перевірте свої дані та зробіть
 скриншот з адресним рядком для звіту. Повний хід роботи — у Moodle.
 
+## Отримання коду
+
+У Linux/WSL, у робочому каталозі без наявного lab1:
+
+```bash
+git clone --depth 1 https://github.com/lisnayk/znu-lab-starters.git
+cp -R znu-lab-starters/conteinerization/labs/01-vagrant/starter lab1
+cd lab1
+```
+
 ## Дані студента
 
 Скопіюйте .env.example у .env, заповніть чотири значення в лапках:
@@ -43,7 +53,9 @@ HOST=0.0.0.0 bash run.sh
 
 ## 3. AWS EC2
 
-У Learner Lab створіть погоджений інстанс Ubuntu. Через SCP передайте main.py,
+У Learner Lab створіть погоджений інстанс Ubuntu. У Security Group дозвольте
+вхідні TCP 22 і TCP 8000 для всіх IPv4-адрес: джерело 0.0.0.0/0 (Anywhere-IPv4).
+Через SCP передайте main.py,
 envinfo.py, requirements.txt, run.sh та .env до ~/lab1.
 У гості встановіть python3-venv та виконайте:
 
