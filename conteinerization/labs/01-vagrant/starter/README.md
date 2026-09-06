@@ -6,7 +6,7 @@
 
 ## Отримання коду
 
-У Linux/WSL, у робочому каталозі без наявного lab1:
+У Linux/macOS або WSL, у робочому каталозі без наявного lab1:
 
 ```bash
 git clone --depth 1 https://github.com/lisnayk/znu-lab-starters.git
@@ -21,7 +21,7 @@ STUDENT_FULL_NAME — ПІБ, STUDENT_GROUP — номер групи, STUDENT_Y
 STUDENT_PROGRAMME — освітня програма. Кодування UTF-8.
 Зміни файла діють після перезапуску сервера. Заповнений .env не публікується.
 
-## 1. Локально в Linux або WSL
+## 1. Локально в Linux/macOS або WSL
 
 У каталозі стартера, з Python 3.10+ і venv:
 

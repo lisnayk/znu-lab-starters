@@ -1,0 +1,15 @@
+# Матеріали редагуються і з WSL, і з Windows-боку.
+# Нормалізуємо переводи рядків, щоб дифи не забивалися шумом.
+* text=auto eol=lf
+
+# Виконувані скрипти прикладів — завжди LF, інакше shebang ламається
+*.sh text eol=lf
+
+# Згенеровані бінарники не діфимо
+*.pptx binary
+*.pdf binary
+*.docx binary
+*.potx binary
+*.dotx binary
+*.png binary
+*.jpg binary
