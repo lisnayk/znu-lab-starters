@@ -8,8 +8,8 @@ from __future__ import annotations
 
 import html
 import os
+import getpass
 import platform
-import pwd
 import shutil
 import socket
 import subprocess
@@ -181,6 +181,12 @@ def _platform_kind() -> tuple[str, list[str]]:
     """Тип середовища та перелік ознак, за якими його визначено."""
     evidence: list[str] = []
 
+    if platform.system() == "Windows":
+        # Ознаки з /proc і /sys доступні лише в Linux, тому у Windows
+        # спираємося на дані самої системи, а не на файлові інтерфейси.
+        model = " ".join(x for x in (platform.uname().node, platform.machine()) if x)
+        return "хост Windows", [f"перевірки /proc і /sys недоступні; {model}"]
+
     if Path("/.dockerenv").exists():
         evidence.append("файл /.dockerenv")
     if Path("/run/.containerenv").exists():
@@ -214,11 +220,36 @@ def _platform_kind() -> tuple[str, list[str]]:
     return "фізична машина або тип не визначено", ["ознак віртуалізації не знайдено"]
 
 
+def _user() -> str:
+    """Ім'я користувача процесу; uid існує лише в Unix."""
+    name = getpass.getuser()
+    getuid = getattr(os, "getuid", None)
+    return f"{name} (uid {getuid()})" if getuid else name
+
+
+def _windows_memory() -> dict[str, int]:
+    """Обсяг пам'яті у Windows: /proc/meminfo там немає."""
+    import ctypes
+
+    class Status(ctypes.Structure):
+        _fields_ = [("dwLength", ctypes.c_ulong), ("dwMemoryLoad", ctypes.c_ulong),
+                    ("ullTotalPhys", ctypes.c_ulonglong), ("ullAvailPhys", ctypes.c_ulonglong),
+                    ("ullTotalPageFile", ctypes.c_ulonglong), ("ullAvailPageFile", ctypes.c_ulonglong),
+                    ("ullTotalVirtual", ctypes.c_ulonglong), ("ullAvailVirtual", ctypes.c_ulonglong),
+                    ("ullAvailExtendedVirtual", ctypes.c_ulonglong)]
+
+    status = Status()
+    status.dwLength = ctypes.sizeof(Status)
+    if not ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(status)):
+        return {}
+    return {"MemTotal": status.ullTotalPhys, "MemAvailable": status.ullAvailPhys}
+
+
 def collect() -> dict[str, dict[str, object]]:
     """Відомості про середовище, згруповані за розділами."""
     uname = platform.uname()
     release = _os_release()
-    memory = _meminfo()
+    memory = _windows_memory() if platform.system() == "Windows" else _meminfo()
     kind, evidence = _platform_kind()
     uptime = _text("/proc/uptime")
     affinity = os.sched_getaffinity(0) if hasattr(os, "sched_getaffinity") else None
@@ -257,10 +288,11 @@ def collect() -> dict[str, dict[str, object]]:
     if affinity is not None:
         cpu["available"] = len(affinity)
     cpu["quota"] = _format_cpu_quota(_cgroup_value("cpu.max", "cpu/cpu.cfs_quota_us"))
-    try:
-        cpu["loadavg"] = ", ".join(f"{value:.2f}" for value in os.getloadavg())
-    except OSError:
-        pass
+    if hasattr(os, "getloadavg"):
+        try:
+            cpu["loadavg"] = ", ".join(f"{value:.2f}" for value in os.getloadavg())
+        except OSError:
+            pass
 
     ram: dict[str, object] = {}
     if "MemTotal" in memory:
@@ -285,7 +317,7 @@ def collect() -> dict[str, dict[str, object]]:
         "venv": "так" if sys.prefix != sys.base_prefix else "ні",
         "pid": os.getpid(),
         "pid1": _text("/proc/1/comm") or "невідомо",
-        "user": f"{pwd.getpwuid(os.getuid()).pw_name} (uid {os.getuid()})",
+        "user": _user(),
         "cwd": os.getcwd(),
     }
     namespaces = _namespaces()

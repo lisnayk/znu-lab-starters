@@ -13,3 +13,7 @@
 *.dotx binary
 *.png binary
 *.jpg binary
+
+# Батники читає cmd.exe: з LF він розбирає файл частинами й падає
+# на кожному рядку. Перевірено запуском у Windows.
+*.bat text eol=crlf
