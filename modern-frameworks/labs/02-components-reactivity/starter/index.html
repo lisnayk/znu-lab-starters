@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Статична заготовка каталогу навчальних матеріалів"
+    />
+    <title>Інформація про виконавця</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="page">
+    <!-- Компонент App.vue: початок. App визначає композицію сторінки та
+         підключає MaterialCatalog. -->
+    <main class="app">
+      <header class="app__header">
+        <a class="brand" href="#" aria-label="Інформація про виконавця — на початок">
+          <span class="brand__mark" aria-hidden="true">ІВ</span>
+          <span class="brand__text">Інформація про виконавця</span>
+        </a>
+
+        <div class="student-info" aria-label="Дані студента та середовище">
+          <!-- TODO: студент замінює текст на власні дані до знімків екрана. -->
+          <p class="student-info__item">
+            <span class="student-info__label">Студент</span>
+            <strong class="student-info__value">Прізвище Ім’я · група ХХ-00</strong>
+          </p>
+          <p class="student-info__item">
+            <span class="student-info__label">Середовище</span>
+            <strong class="student-info__value">ОС · браузер · Node.js</strong>
+          </p>
+        </div>
+      </header>
+
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Лабораторна робота № 2</p>
+          <h1 class="hero__title" id="page-title">Компоненти та реактивність</h1>
+        </div>
+      </section>
+
+      <!-- Компонент MaterialCatalog.vue: початок. Він володіє фільтрами,
+           обчисленими результатами та назвою вибраного матеріалу. -->
+      <section class="material-catalog" aria-labelledby="catalog-title">
+        <div class="material-catalog__heading">
+          <div>
+            <h2 class="material-catalog__title" id="catalog-title">
+              Каталог матеріалів
+            </h2>
+          </div>
+          <p class="material-catalog__summary">
+            <strong class="material-catalog__count">Знайдено: 6</strong>
+            <span aria-hidden="true">·</span>
+            Загальна тривалість: 180 хв
+          </p>
+        </div>
+
+        <!-- TODO MaterialCatalog.vue: зв’яжіть поля з filterForm через v-model,
+             обробіть submit методом applyFilters, а reset — clearFilters. -->
+        <form class="filters" action="#" aria-label="Фільтри каталогу">
+          <label class="field">
+            <span class="field__label">Пошук за назвою</span>
+            <span class="field__control">
+              <span class="field__icon" aria-hidden="true">⌕</span>
+              <input
+                class="field__input"
+                type="search"
+                name="query"
+                placeholder="Наприклад, компоненти"
+              />
+            </span>
+          </label>
+
+          <label class="field">
+            <span class="field__label">Тема</span>
+            <span class="field__control">
+              <select class="field__select" name="topic">
+                <option value="all">Усі теми</option>
+                <option value="vue">Vue</option>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="javascript">JavaScript</option>
+              </select>
+            </span>
+          </label>
+
+          <div class="filters__actions">
+            <button class="button button--primary" type="submit">
+              Застосувати
+            </button>
+            <button class="button button--secondary" type="reset">
+              Очистити
+            </button>
+          </div>
+        </form>
+
+        <!-- TODO MaterialCatalog.vue: виводьте тут selectedTitle. Початково
+             вибраним має бути перший матеріал. -->
+        <p class="selection-status" aria-live="polite">
+          <span class="selection-status__label">Обраний матеріал</span>
+          <strong class="selection-status__value">Компоненти Vue</strong>
+        </p>
+
+        <!-- TODO MaterialCatalog.vue: замініть шість статичних копій одним
+             MaterialCard у v-for; як :key використайте material.id. -->
+        <div class="material-list">
+          <!-- Компонент MaterialCard.vue: початок. title, topic, description,
+               minutes і selected надходять через props; кнопка надсилає
+               emit('select', title). Якщо selected дорівнює true, додайте
+               модифікатор material-card--selected і aria-pressed="true". -->
+          <article class="material-card material-card--vue material-card--selected">
+            <div class="material-card__meta">
+              <span class="material-card__number">01</span>
+              <span class="material-card__topic">Vue</span>
+            </div>
+            <h3 class="material-card__title">Компоненти Vue</h3>
+            <p class="material-card__description">
+              Межі компонентів, вхідні дані та повторне використання розмітки.
+            </p>
+            <div class="material-card__footer">
+              <span class="material-card__duration">35 хв</span>
+              <button class="material-card__action" type="button" aria-pressed="true">
+                Обрано <span aria-hidden="true">✓</span>
+              </button>
+            </div>
+          </article>
+          <!-- Компонент MaterialCard.vue: кінець. -->
+
+          <article class="material-card material-card--html">
+            <div class="material-card__meta">
+              <span class="material-card__number">02</span>
+              <span class="material-card__topic">HTML</span>
+            </div>
+            <h3 class="material-card__title">Семантичний HTML</h3>
+            <p class="material-card__description">
+              Структура документа, доступні орієнтири та змістовні елементи.
+            </p>
+            <div class="material-card__footer">
+              <span class="material-card__duration">20 хв</span>
+              <button class="material-card__action" type="button" aria-pressed="false">
+                Обрати <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="material-card material-card--vue">
+            <div class="material-card__meta">
+              <span class="material-card__number">03</span>
+              <span class="material-card__topic">Vue</span>
+            </div>
+            <h3 class="material-card__title">Реактивний стан</h3>
+            <p class="material-card__description">
+              Значення ref, похідні обчислення та оновлення інтерфейсу.
+            </p>
+            <div class="material-card__footer">
+              <span class="material-card__duration">30 хв</span>
+              <button class="material-card__action" type="button" aria-pressed="false">
+                Обрати <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="material-card material-card--css">
+            <div class="material-card__meta">
+              <span class="material-card__number">04</span>
+              <span class="material-card__topic">CSS</span>
+            </div>
+            <h3 class="material-card__title">CSS Grid</h3>
+            <p class="material-card__description">
+              Двовимірна сітка, адаптивні колонки та керування проміжками.
+            </p>
+            <div class="material-card__footer">
+              <span class="material-card__duration">25 хв</span>
+              <button class="material-card__action" type="button" aria-pressed="false">
+                Обрати <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="material-card material-card--javascript">
+            <div class="material-card__meta">
+              <span class="material-card__number">05</span>
+              <span class="material-card__topic">JavaScript</span>
+            </div>
+            <h3 class="material-card__title">Події у браузері</h3>
+            <p class="material-card__description">
+              Обробники подій, об’єкт event і взаємодія користувача зі сторінкою.
+            </p>
+            <div class="material-card__footer">
+              <span class="material-card__duration">40 хв</span>
+              <button class="material-card__action" type="button" aria-pressed="false">
+                Обрати <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </article>
+
+          <article class="material-card material-card--html">
+            <div class="material-card__meta">
+              <span class="material-card__number">06</span>
+              <span class="material-card__topic">HTML</span>
+            </div>
+            <h3 class="material-card__title">Доступні форми</h3>
+            <p class="material-card__description">
+              Підписи полів, стани фокуса та зрозумілий порядок взаємодії.
+            </p>
+            <div class="material-card__footer">
+              <span class="material-card__duration">30 хв</span>
+              <button class="material-card__action" type="button" aria-pressed="false">
+                Обрати <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- TODO MaterialCatalog.vue: цей блок має замінювати material-list
+             через v-if/v-else, коли filteredMaterials порожній. -->
+        <p class="empty-state" hidden>
+          За заданими умовами матеріалів немає.
+        </p>
+      </section>
+      <!-- Компонент MaterialCatalog.vue: кінець. -->
+
+      <footer class="app__footer">
+        <span>Інформація про виконавця · 2026</span>
+        <span>Статичну верстку потрібно перетворити на Vue-застосунок</span>
+      </footer>
+    </main>
+    <!-- Компонент App.vue: кінець. -->
+  </body>
+</html>

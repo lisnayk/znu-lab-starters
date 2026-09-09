@@ -9,6 +9,7 @@
 
 
 - [Системи віртуалізації та контейнеризації — 01-vagrant](conteinerization/labs/01-vagrant/starter/)
+- [Сучасні каркаси web-додатків — 02-components-reactivity](modern-frameworks/labs/02-components-reactivity/starter/)
 
 
 ---
