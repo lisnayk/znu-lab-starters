@@ -5,11 +5,12 @@
 Це дзеркало, а не місце для роботи. Правки робляться у джерелі й
 приїжджають сюди наступною публікацією.
 
+[Правила структури й оформлення](RULES.md).
+
 ## Курси
 
-
-- [Системи віртуалізації та контейнеризації — 01-vagrant](conteinerization/labs/01-vagrant/starter/)
-- [Сучасні каркаси web-додатків — 02-components-reactivity](modern-frameworks/labs/02-components-reactivity/starter/)
+- [Системи віртуалізації та контейнеризації](conteinerization/)
+- [Сучасні каркаси web-додатків](modern-frameworks/)
 
 
 ---
