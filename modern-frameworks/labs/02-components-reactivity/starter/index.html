@@ -56,8 +56,11 @@
           </p>
         </div>
 
-        <!-- TODO MaterialCatalog.vue: зв’яжіть поля з filterForm через v-model,
-             обробіть submit методом applyFilters, а reset — clearFilters. -->
+        <!-- Компонент MaterialFilterForm.vue: початок. Він зберігає локальний
+             стан полів, надсилає apply з об'єктом фільтрів і подію clear. -->
+        <!-- TODO MaterialFilterForm.vue: зв’яжіть поля з filterForm через
+             v-model, обробіть submit методом submitFilters, а reset —
+             clearFilters. -->
         <form class="filters" action="#" aria-label="Фільтри каталогу">
           <label class="field">
             <span class="field__label">Пошук за назвою</span>
@@ -94,6 +97,7 @@
             </button>
           </div>
         </form>
+        <!-- Компонент MaterialFilterForm.vue: кінець. -->
 
         <!-- TODO MaterialCatalog.vue: виводьте тут selectedTitle. Початково
              вибраним має бути перший матеріал. -->
