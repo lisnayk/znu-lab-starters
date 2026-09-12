@@ -1,0 +1,44 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #20332e;
+  background: #f5f6f2;
+  line-height: 1.6;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: #285e4d; text-underline-offset: .25em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 3px solid #936618; outline-offset: 5px; }
+.page { max-width: 960px; margin: auto; padding: 0 32px; }
+header, footer { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+header { padding: 28px 0; border-bottom: 1px solid #ccd7ce; align-items: center; }
+.brand { font-size: 1.1rem; font-weight: 750; text-decoration: none; }
+nav { display: flex; gap: 24px; flex-wrap: wrap; }
+nav a { text-decoration: none; }
+nav a[aria-current] { text-decoration: underline; font-weight: 650; }
+main { padding: 48px 0; max-width: 760px; }
+.eyebrow { margin: 0 0 12px; color: #496b5c; font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; }
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.12; letter-spacing: -.035em; margin: 0 0 24px; }
+h2 { font-size: 1.15rem; line-height: 1.35; margin: 0 0 12px; }
+p { margin: 0 0 20px; }
+.lead { font-size: 1.15rem; color: #4d6058; max-width: 620px; }
+.card { background: #fff; border: 1px solid #d7dfd8; border-radius: 16px; padding: 28px; margin-top: 28px; }
+.card p:last-child { margin-bottom: 0; }
+.button { display: inline-block; padding: 10px 18px; background: #285e4d; color: #fff; border-radius: 8px; text-decoration: none; }
+dl { margin: 0 0 28px; }
+dl div { display: grid; grid-template-columns: 130px 1fr; gap: 16px; padding: 8px 0; }
+dt { color: #4d6058; }
+dd { margin: 0; overflow-wrap: anywhere; }
+footer { border-top: 1px solid #ccd7ce; padding: 22px 0 30px; color: #4d6058; font-size: .9rem; }
+.skip { position: absolute; left: 16px; top: -100px; background: #fff; padding: 10px; }
+.skip:focus { top: 8px; }
+@media (max-width: 540px) {
+  .page { padding: 0 20px; }
+  header { gap: 12px; padding: 20px 0; }
+  nav { gap: 16px; }
+  main { padding: 32px 0; }
+  .card { padding: 20px; }
+  dl div { grid-template-columns: 1fr; gap: 2px; }
+  footer { flex-direction: column; gap: 6px; }
+}
