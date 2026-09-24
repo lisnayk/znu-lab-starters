@@ -4,5 +4,5 @@
 
 ## Лабораторні роботи
 
-- [Компоненти та реактивність (денна форма — № 2, заочна форма — № 1)](labs/02-components-reactivity/starter/)
-- [Створення вкладок із використанням Slots, Provide/Inject, dynamic components і KeepAlive (денна форма — № 4, заочна форма — № 4)](labs/04-slots-provide/starter/)
+- [Лабораторна робота № 2 (денна форма), № 1 (заочна форма)](labs/02-components-reactivity/starter/)
+- [Лабораторна робота № 4](labs/04-slots-provide/starter/)
