@@ -11,7 +11,7 @@
 
 - [Системи віртуалізації та контейнеризації](conteinerization/)
 - [Сучасні каркаси web-додатків](modern-frameworks/)
-- [Веб-програмування](web-programming/)
+- [Вебпрограмування](web-programming/)
 
 
 ---
