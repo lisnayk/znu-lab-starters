@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f3f5f8" />
+    <title>Головна — [НАЗВА ПРОЄКТУ]</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="partners.js" defer></script>
+  </head>
+  <body class="page">
+    <a class="skip-link" href="#main-content">Перейти до вмісту</a>
+    <header class="site-header">
+      <a class="site-header__brand" href="index.html"
+        ><span class="site-header__logo" aria-hidden="true">&gt;_</span
+        ><span class="site-header__brand-copy"
+          >[НАЗВА ПРОЄКТУ]<small class="site-header__subtitle"
+            >computer store</small
+          ></span
+        ></a
+      >
+      <nav class="site-nav" aria-label="Головна навігація">
+        <a
+          class="site-nav__link site-nav__link--active"
+          href="index.html"
+          aria-current="page"
+          >Головна</a
+        ><a class="site-nav__link" href="catalog.html">Каталог</a>
+      </nav>
+      <div class="site-header__tools">
+        <a class="site-header__action" href="mailto:author@example.com"
+          >Допомога з вибором</a
+        >
+        <details
+          class="notification-menu"
+          data-component="notification-center"
+          data-endpoint="/api/notifications"
+        >
+          <summary
+            class="notification-menu__trigger"
+            aria-label="Відкрити сповіщення"
+          >
+            <svg
+              class="notification-menu__icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              aria-hidden="true"
+            >
+              <path
+                d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+              />
+            </svg>
+            <span
+              class="notification-menu__badge"
+              data-notification-count
+              aria-label="2 нові сповіщення"
+            >
+              2
+            </span>
+          </summary>
+          <div class="notification-menu__panel">
+            <div class="notification-menu__header">
+              <div>
+                <p class="notification-menu__eyebrow">Останні події</p>
+                <h2 class="notification-menu__title">Сповіщення</h2>
+              </div>
+              <button
+                class="notification-menu__clear"
+                type="button"
+                data-action="mark-all-read"
+              >
+                Прочитати всі
+              </button>
+            </div>
+            <ul
+              class="notification-menu__list"
+              data-notification-list
+              aria-live="polite"
+            >
+              <li
+                class="notification-menu__item notification-menu__item--unread"
+                data-notification-id="demo-request"
+                data-event="request.received"
+              >
+                <span class="notification-menu__dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Заявку прийнято</strong>
+                  <p>Ми отримали ваше звернення.</p>
+                  <time datetime="2026-09-26T08:00:00">щойно</time>
+                </div>
+                <button
+                  class="notification-menu__read"
+                  type="button"
+                  data-action="mark-read"
+                  aria-label="Позначити сповіщення як прочитане"
+                >
+                  ✓
+                </button>
+              </li>
+              <li
+                class="notification-menu__item"
+                data-notification-id="demo-offer"
+                data-event="offer.updated"
+              >
+                <span class="notification-menu__dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Пропозицію оновлено</strong>
+                  <p>Змінилися умови або доступність.</p>
+                  <time datetime="2026-09-26T07:48:00">12 хв тому</time>
+                </div>
+                <button
+                  class="notification-menu__read"
+                  type="button"
+                  data-action="mark-read"
+                  aria-label="Позначити сповіщення як прочитане"
+                >
+                  ✓
+                </button>
+              </li>
+              <li
+                class="notification-menu__empty"
+                data-notification-empty
+                hidden
+              >
+                Нових сповіщень немає.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </header>
+    <main class="page__main" id="main-content">
+      <section class="tech-hero">
+        <div class="tech-hero__copy">
+          <p class="eyebrow">
+            <span aria-hidden="true"></span> Техніка для роботи та гри
+          </p>
+          <h1 class="tech-hero__title">
+            Зберіть свій <strong>ідеальний сетап.</strong>
+          </h1>
+          <p class="tech-hero__lead">
+            Порівнюйте характеристики, знаходьте сумісні пристрої та обирайте
+            техніку під конкретні задачі.
+          </p>
+          <div class="tech-hero__actions">
+            <a class="button" href="catalog.html">Перейти до каталогу</a
+            ><a class="text-link" href="mailto:author@example.com"
+              >Отримати консультацію →</a
+            >
+          </div>
+          <div class="tech-hero__metrics">
+            <p><strong>12</strong><span>моделей</span></p>
+            <p><strong>36 міс.</strong><span>гарантії</span></p>
+            <p><strong>1 день</strong><span>на відправлення</span></p>
+          </div>
+        </div>
+        <form class="finder" action="catalog.html" method="get">
+          <div class="finder__header">
+            <p>Підбір конфігурації</p>
+            <span>01 / 04</span>
+          </div>
+          <fieldset class="finder__mode">
+            <legend class="visually-hidden">Операція</legend>
+            <label class="finder__option"
+              ><input type="radio" name="operation" value="sale" checked /><span
+                >Продаж</span
+              ></label
+            >
+            <label class="finder__option"
+              ><input type="radio" name="operation" value="rent" /><span
+                >Оренда</span
+              ></label
+            >
+          </fieldset>
+          <label class="field"
+            ><span class="field__label">Пристрій</span
+            ><select class="field__control" name="device">
+              <option>Ноутбук</option>
+              <option>Настільний ПК</option>
+              <option>Монітор</option>
+            </select></label
+          >
+          <div class="finder__row">
+            <label class="field"
+              ><span class="field__label">Сценарій</span
+              ><select class="field__control" name="usage">
+                <option>Робота</option>
+                <option>Навчання</option>
+                <option>Ігри</option>
+              </select></label
+            >
+            <label class="field"
+              ><span class="field__label">Бюджет, ₴</span
+              ><input
+                class="field__control"
+                type="number"
+                name="budget"
+                placeholder="до 50 000"
+                autocomplete="off"
+            /></label>
+          </div>
+          <label class="finder__check"
+            ><input type="checkbox" name="available" checked /> Лише моделі в
+            наявності</label
+          >
+          <button class="button button--cyan" type="submit">
+            Показати рішення
+          </button>
+        </form>
+      </section>
+      <section
+        class="tech-section tech-section--recommendations"
+        aria-labelledby="recommended-tech-title"
+      >
+        <div class="tech-section__heading">
+          <div>
+            <p class="eyebrow">
+              <span aria-hidden="true"></span> Добірка магазину
+            </p>
+            <h2 class="tech-section__title" id="recommended-tech-title">
+              Рекомендована техніка
+            </h2>
+          </div>
+          <a class="text-link" href="catalog.html">Усі 12 моделей →</a>
+        </div>
+        <div class="tech-recommendation-grid">
+          <article
+            class="catalog-card catalog-card--featured tech-recommendation"
+          >
+            <a class="tech-recommendation__media atlas-frame" href="show.html"
+              ><img
+                class="catalog-card__image atlas-frame__image atlas-frame__image--first"
+                src="images/catalog-atlas.png"
+                alt="Ноутбук AeroBook 14 Pro"
+                width="1774"
+                height="887"
+                loading="lazy"
+              /><span class="tech-recommendation__label">Хіт продажу</span></a
+            >
+            <div class="tech-recommendation__body">
+              <p class="catalog-card__eyebrow">Ноутбук · купівля</p>
+              <h3 class="catalog-card__title">AeroBook 14 Pro</h3>
+              <p class="catalog-card__description">
+                Core Ultra 7 · 32 GB · SSD 1 TB
+              </p>
+              <div class="tech-recommendation__footer">
+                <strong class="catalog-card__price">54 900 ₴</strong
+                ><a class="text-link" href="show.html">Переглянути →</a>
+              </div>
+            </div>
+          </article>
+          <article class="catalog-card tech-recommendation">
+            <a class="tech-recommendation__media atlas-frame" href="show.html"
+              ><img
+                class="catalog-card__image atlas-frame__image atlas-frame__image--second"
+                src="images/catalog-atlas.png"
+                alt="Настільний комп’ютер Forge Station X"
+                width="1774"
+                height="887"
+                loading="lazy"
+              /><span
+                class="tech-recommendation__label tech-recommendation__label--violet"
+                >Оренда</span
+              ></a
+            >
+            <div class="tech-recommendation__body">
+              <p class="catalog-card__eyebrow">Настільний ПК · оренда</p>
+              <h3 class="catalog-card__title">Forge Station X</h3>
+              <p class="catalog-card__description">
+                RTX 5070 · 32 GB · SSD 2 TB
+              </p>
+              <div class="tech-recommendation__footer">
+                <strong class="catalog-card__price">2 400 ₴ / тиждень</strong
+                ><a class="text-link" href="show.html">Переглянути →</a>
+              </div>
+            </div>
+          </article>
+          <article class="catalog-card tech-recommendation">
+            <a class="tech-recommendation__media atlas-frame" href="show.html"
+              ><img
+                class="catalog-card__image atlas-frame__image atlas-frame__image--third"
+                src="images/catalog-atlas.png"
+                alt="Монітор Horizon 34Q"
+                width="1774"
+                height="887"
+                loading="lazy"
+              /><span
+                class="tech-recommendation__label tech-recommendation__label--green"
+                >Для дизайну</span
+              ></a
+            >
+            <div class="tech-recommendation__body">
+              <p class="catalog-card__eyebrow">Монітор · купівля</p>
+              <h3 class="catalog-card__title">Horizon 34Q</h3>
+              <p class="catalog-card__description">
+                34″ IPS · 165 Hz · точне відтворення кольору
+              </p>
+              <div class="tech-recommendation__footer">
+                <strong class="catalog-card__price">31 900 ₴</strong
+                ><a class="text-link" href="show.html">Переглянути →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section
+        class="tech-feature"
+        id="featured"
+        aria-labelledby="tech-pick-title"
+      >
+        <div class="atlas-frame tech-feature__media">
+          <img
+            class="atlas-frame__image atlas-frame__image--first"
+            src="images/catalog-atlas.png"
+            alt="Тонкий ноутбук на сучасному робочому столі"
+            width="1774"
+            height="887"
+            loading="lazy"
+          />
+          <span class="tech-feature__badge">Device / week</span>
+        </div>
+        <div class="tech-feature__content">
+          <p class="eyebrow">Пристрій тижня · продаж</p>
+          <h2 class="tech-feature__title" id="tech-pick-title">
+            AeroBook 14 Pro
+          </h2>
+          <p>
+            Легкий корпус, яскравий дисплей і продуктивність для щоденних
+            складних задач.
+          </p>
+          <dl class="spec-strip">
+            <div>
+              <dt>CPU</dt>
+              <dd>Core Ultra 7</dd>
+            </div>
+            <div>
+              <dt>RAM</dt>
+              <dd>32 GB</dd>
+            </div>
+            <div>
+              <dt>SSD</dt>
+              <dd>1 TB</dd>
+            </div>
+          </dl>
+          <div class="price-row">
+            <strong>54 900 ₴</strong
+            ><a class="button button--small button--cyan" href="show.html"
+              >Переглянути пристрій</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <section class="partners" aria-labelledby="partners-title">
+      <div class="partners__heading">
+        <div>
+          <p class="partners__eyebrow">Співпраця</p>
+          <h2 class="partners__title" id="partners-title">Наші партнери</h2>
+        </div>
+        <p class="partners__text">
+          Компанії, які допомагають перевіряти пропозиції, організовувати
+          отримання та підтримувати якість сервісу.
+        </p>
+      </div>
+      <div class="partners__slider" data-partners-slider>
+        <button
+          class="partners__control"
+          type="button"
+          data-action="partners-previous"
+          aria-label="Показати попередні логотипи"
+          aria-controls="partners-viewport"
+          disabled
+        >
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path
+              d="m15 5-7 7 7 7"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+        <div
+          class="partners__viewport"
+          id="partners-viewport"
+          data-partners-viewport
+          role="region"
+          aria-label="Логотипи партнерів"
+          tabindex="0"
+        >
+          <div class="partners__track">
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-nova"></use>
+              </svg>
+              <span class="partner-logo__name">NOVA</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-orbit"></use>
+              </svg>
+              <span class="partner-logo__name">ORBIT</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-vector"></use>
+              </svg>
+              <span class="partner-logo__name">VECTOR</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-form"></use>
+              </svg>
+              <span class="partner-logo__name">FORMA</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-pulse"></use>
+              </svg>
+              <span class="partner-logo__name">PULSE</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-nexus"></use>
+              </svg>
+              <span class="partner-logo__name">NEXUS</span>
+            </div>
+          </div>
+        </div>
+        <button
+          class="partners__control"
+          type="button"
+          data-action="partners-next"
+          aria-label="Показати наступні логотипи"
+          aria-controls="partners-viewport"
+        >
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path
+              d="m9 5 7 7-7 7"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <p class="site-footer__text">[ПІБ] · [ГРУПА]</p>
+      <p class="site-footer__meta">Варіант [№] · Tech Showcase</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#5a2333" />
+    <title>Книгарня — [НАЗВА ПРОЄКТУ]</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page">
+    <a class="skip-link" href="#main-content">Перейти до вмісту</a>
+    <header class="site-header">
+      <a class="site-header__brand" href="index.html"
+        ><span class="site-header__mark" aria-hidden="true">К</span
+        ><span class="site-header__brand-copy"
+          >[НАЗВА ПРОЄКТУ]<small class="site-header__subtitle"
+            >книги з історією</small
+          ></span
+        ></a
+      >
+      <nav class="site-nav" aria-label="Головна навігація">
+        <a class="site-nav__link" href="index.html">Головна</a
+        ><a
+          class="site-nav__link site-nav__link--active"
+          href="catalog.html"
+          aria-current="page"
+          >Книгарня</a
+        >
+      </nav>
+      <div class="site-header__tools">
+        <a class="site-header__contact" href="mailto:author@example.com"
+          >Запропонувати книгу</a
+        >
+        <details
+          class="notification-menu"
+          data-component="notification-center"
+          data-endpoint="/api/notifications"
+        >
+          <summary
+            class="notification-menu__trigger"
+            aria-label="Відкрити сповіщення"
+          >
+            <svg
+              class="notification-menu__icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              aria-hidden="true"
+            >
+              <path
+                d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+              />
+            </svg>
+            <span
+              class="notification-menu__badge"
+              data-notification-count
+              aria-label="2 нові сповіщення"
+            >
+              2
+            </span>
+          </summary>
+          <div class="notification-menu__panel">
+            <div class="notification-menu__header">
+              <div>
+                <p class="notification-menu__eyebrow">Останні події</p>
+                <h2 class="notification-menu__title">Сповіщення</h2>
+              </div>
+              <button
+                class="notification-menu__clear"
+                type="button"
+                data-action="mark-all-read"
+              >
+                Прочитати всі
+              </button>
+            </div>
+            <ul
+              class="notification-menu__list"
+              data-notification-list
+              aria-live="polite"
+            >
+              <li
+                class="notification-menu__item notification-menu__item--unread"
+                data-notification-id="demo-request"
+                data-event="request.received"
+              >
+                <span class="notification-menu__dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Заявку прийнято</strong>
+                  <p>Ми отримали ваше звернення.</p>
+                  <time datetime="2026-09-26T08:00:00">щойно</time>
+                </div>
+                <button
+                  class="notification-menu__read"
+                  type="button"
+                  data-action="mark-read"
+                  aria-label="Позначити сповіщення як прочитане"
+                >
+                  ✓
+                </button>
+              </li>
+              <li
+                class="notification-menu__item"
+                data-notification-id="demo-offer"
+                data-event="offer.updated"
+              >
+                <span class="notification-menu__dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Пропозицію оновлено</strong>
+                  <p>Змінилися умови або доступність.</p>
+                  <time datetime="2026-09-26T07:48:00">12 хв тому</time>
+                </div>
+                <button
+                  class="notification-menu__read"
+                  type="button"
+                  data-action="mark-read"
+                  aria-label="Позначити сповіщення як прочитане"
+                >
+                  ✓
+                </button>
+              </li>
+              <li
+                class="notification-menu__empty"
+                data-notification-empty
+                hidden
+              >
+                Нових сповіщень немає.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </header>
+    <main class="page__main" id="main-content">
+      <section class="service-hero">
+        <div>
+          <p class="eyebrow">12 видань у добірці</p>
+          <h1 class="service-hero__title">
+            Знайдіть історію<br /><em>для себе.</em>
+          </h1>
+        </div>
+        <div class="service-hero__summary">
+          <p>
+            Кожна картка містить стан, формат отримання та основні
+            бібліографічні дані.
+          </p>
+          <strong>Осінь / 2026</strong>
+        </div>
+      </section>
+      <div class="service-layout">
+        <aside class="service-sidebar">
+          <p class="service-sidebar__title">Розділи</p>
+          <nav class="category-nav" aria-label="Категорії каталогу">
+            <a class="category-nav__item category-nav__item--active" href="#"
+              >Усі книги <span>12</span></a
+            ><a class="category-nav__item" href="#">Художня <span>5</span></a
+            ><a class="category-nav__item" href="#">Нон-фікшн <span>4</span></a
+            ><a class="category-nav__item" href="#"
+              >Професійна <span>3</span></a
+            >
+          </nav>
+          <div class="service-sidebar__help">
+            <strong>Маєте книгу, якою готові поділитися?</strong>
+            <p>
+              Запропонуйте її для продажу або оренди та знайдіть нового читача.
+            </p>
+            <a href="mailto:author@example.com">Додати книгу →</a>
+          </div>
+        </aside>
+        <section class="service-results">
+          <div class="service-toolbar">
+            <p>Показано 3 з 12</p>
+            <div class="service-chips">
+              <button class="service-chip service-chip--active" type="button">
+                Усі</button
+              ><button class="service-chip" type="button">Продаж</button
+              ><button class="service-chip" type="button">Оренда</button>
+            </div>
+          </div>
+          <div class="service-catalog">
+            <article class="catalog-card catalog-card--featured service-card">
+              <div class="service-card__media atlas-frame">
+                <img
+                  class="catalog-card__image atlas-frame__image atlas-frame__image--first"
+                  src="images/catalog-atlas.png"
+                  alt="Стос сучасних книжок із відкритим виданням"
+                  width="1774"
+                  height="887"
+                  fetchpriority="high"
+                /><span class="service-card__status">Є в наявності</span>
+              </div>
+              <div class="service-card__content">
+                <div class="service-card__top">
+                  <p class="catalog-card__eyebrow">Есеї · продаж</p>
+                  <p class="service-card__code">BK–021</p>
+                </div>
+                <h2 class="catalog-card__title">
+                  Місто і його невидимі історії
+                </h2>
+                <p class="catalog-card__description">
+                  Збірка про пам’ять місць, архітектуру та людей, які формують
+                  міський простір.
+                </p>
+                <ul class="service-card__features">
+                  <li>Тверда обкладинка</li>
+                  <li>Українська</li>
+                  <li>256 сторінок</li>
+                </ul>
+              </div>
+              <div class="service-card__aside">
+                <strong class="catalog-card__price">480 ₴</strong
+                ><span>стан відмінний</span
+                ><a class="service-card__button" href="show.html"
+                  >Переглянути книгу</a
+                >
+              </div>
+            </article>
+            <article class="catalog-card service-card">
+              <div class="service-card__media atlas-frame">
+                <img
+                  class="catalog-card__image atlas-frame__image atlas-frame__image--second"
+                  src="images/catalog-atlas.png"
+                  alt="Книга у затишному куточку для читання"
+                  width="1774"
+                  height="887"
+                  loading="lazy"
+                /><span class="service-card__status">Можливий обмін</span>
+              </div>
+              <div class="service-card__content">
+                <div class="service-card__top">
+                  <p class="catalog-card__eyebrow">Художня · оренда</p>
+                  <p class="service-card__code">BK–034</p>
+                </div>
+                <h2 class="catalog-card__title">Сад після останнього дощу</h2>
+                <p class="catalog-card__description">
+                  Камерний роман про дім, родинну пам’ять і рішення, які
+                  визрівають у тиші.
+                </p>
+                <ul class="service-card__features">
+                  <li>М’яка обкладинка</li>
+                  <li>Українська</li>
+                  <li>320 сторінок</li>
+                </ul>
+              </div>
+              <div class="service-card__aside">
+                <strong class="catalog-card__price">Оренда</strong
+                ><span>без доплати</span
+                ><a class="service-card__button" href="show.html"
+                  >Переглянути книгу</a
+                >
+              </div>
+            </article>
+            <article class="catalog-card service-card">
+              <div class="service-card__media atlas-frame">
+                <img
+                  class="catalog-card__image atlas-frame__image atlas-frame__image--third"
+                  src="images/catalog-atlas.png"
+                  alt="Професійні книги на робочому столі"
+                  width="1774"
+                  height="887"
+                  loading="lazy"
+                /><span
+                  class="service-card__status service-card__status--mustard"
+                  >Оренда на тиждень</span
+                >
+              </div>
+              <div class="service-card__content">
+                <div class="service-card__top">
+                  <p class="catalog-card__eyebrow">Дизайн · оренда</p>
+                  <p class="service-card__code">BK–047</p>
+                </div>
+                <h2 class="catalog-card__title">Практика сучасного дизайну</h2>
+                <p class="catalog-card__description">
+                  Робочий довідник про композицію, типографіку й побудову
+                  зрозумілих інтерфейсів.
+                </p>
+                <ul class="service-card__features">
+                  <li>Тверда обкладинка</li>
+                  <li>Англійська</li>
+                  <li>412 сторінок</li>
+                </ul>
+              </div>
+              <div class="service-card__aside">
+                <strong class="catalog-card__price">120 ₴</strong
+                ><span>за тиждень</span
+                ><a class="service-card__button" href="show.html"
+                  >Переглянути книгу</a
+                >
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <p class="site-footer__text">[ПІБ] · [ГРУПА]</p>
+      <p class="site-footer__meta">Варіант [№] · Book Exchange</p>
+    </footer>
+  </body>
+</html>

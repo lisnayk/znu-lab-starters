@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2f4438" />
+    <title>Колекція — [НАЗВА ПРОЄКТУ]</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page">
+    <a class="skip-link" href="#main-content">Перейти до вмісту</a>
+    <header class="site-header">
+      <a class="site-header__brand" href="index.html"
+        >[НАЗВА ПРОЄКТУ]<small class="site-header__subtitle"
+          >простори для життя</small
+        ></a
+      >
+      <nav class="site-nav" aria-label="Головна навігація">
+        <a class="site-nav__link" href="index.html">Головна</a
+        ><a
+          class="site-nav__link site-nav__link--active"
+          href="catalog.html"
+          aria-current="page"
+          >Колекція</a
+        >
+      </nav>
+      <div class="site-header__tools">
+        <a class="site-header__contact" href="mailto:author@example.com"
+          >Запитати агента</a
+        >
+        <details
+          class="notification-menu"
+          data-component="notification-center"
+          data-endpoint="/api/notifications"
+        >
+          <summary
+            class="notification-menu__trigger"
+            aria-label="Відкрити сповіщення"
+          >
+            <svg
+              class="notification-menu__icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              aria-hidden="true"
+            >
+              <path
+                d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+              />
+            </svg>
+            <span
+              class="notification-menu__badge"
+              data-notification-count
+              aria-label="2 нові сповіщення"
+            >
+              2
+            </span>
+          </summary>
+          <div class="notification-menu__panel">
+            <div class="notification-menu__header">
+              <div>
+                <p class="notification-menu__eyebrow">Останні події</p>
+                <h2 class="notification-menu__title">Сповіщення</h2>
+              </div>
+              <button
+                class="notification-menu__clear"
+                type="button"
+                data-action="mark-all-read"
+              >
+                Прочитати всі
+              </button>
+            </div>
+            <ul
+              class="notification-menu__list"
+              data-notification-list
+              aria-live="polite"
+            >
+              <li
+                class="notification-menu__item notification-menu__item--unread"
+                data-notification-id="demo-request"
+                data-event="request.received"
+              >
+                <span class="notification-menu__dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Заявку прийнято</strong>
+                  <p>Ми отримали ваше звернення.</p>
+                  <time datetime="2026-09-26T08:00:00">щойно</time>
+                </div>
+                <button
+                  class="notification-menu__read"
+                  type="button"
+                  data-action="mark-read"
+                  aria-label="Позначити сповіщення як прочитане"
+                >
+                  ✓
+                </button>
+              </li>
+              <li
+                class="notification-menu__item"
+                data-notification-id="demo-offer"
+                data-event="offer.updated"
+              >
+                <span class="notification-menu__dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Пропозицію оновлено</strong>
+                  <p>Змінилися умови або доступність.</p>
+                  <time datetime="2026-09-26T07:48:00">12 хв тому</time>
+                </div>
+                <button
+                  class="notification-menu__read"
+                  type="button"
+                  data-action="mark-read"
+                  aria-label="Позначити сповіщення як прочитане"
+                >
+                  ✓
+                </button>
+              </li>
+              <li
+                class="notification-menu__empty"
+                data-notification-empty
+                hidden
+              >
+                Нових сповіщень немає.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </header>
+    <main class="page__main" id="main-content">
+      <section class="editorial-intro">
+        <div>
+          <p class="eyebrow">Каталог вибраних оголошень</p>
+          <h1 class="editorial-intro__title">
+            Простір для<br /><em>важливого.</em>
+          </h1>
+        </div>
+        <p class="editorial-intro__lead">
+          Три різні сценарії життя. Зображення, контекст і ключові
+          характеристики допомагають порівняти об’єкти без зайвого шуму.
+        </p>
+      </section>
+      <form class="catalog-filter" action="catalog.html" method="get">
+        <fieldset class="catalog-filter__operations">
+          <legend class="visually-hidden">Операція з нерухомістю</legend>
+          <label class="catalog-filter__option">
+            <input type="radio" name="operation" value="" checked />
+            <span>Усі</span>
+          </label>
+          <label class="catalog-filter__option">
+            <input type="radio" name="operation" value="sale" />
+            <span>Продаж</span>
+          </label>
+          <label class="catalog-filter__option">
+            <input type="radio" name="operation" value="rent" />
+            <span>Оренда</span>
+          </label>
+        </fieldset>
+        <label class="catalog-filter__field">
+          <span>Тип житла</span>
+          <select name="type">
+            <option value="">Будь-який</option>
+            <option value="apartment">Квартира</option>
+            <option value="house">Будинок</option>
+            <option value="loft">Лофт</option>
+          </select>
+        </label>
+        <label class="catalog-filter__field">
+          <span>Кімнати</span>
+          <select name="rooms">
+            <option value="">Будь-яка кількість</option>
+            <option value="1">1 кімната</option>
+            <option value="2">2 кімнати</option>
+            <option value="3">3 кімнати</option>
+            <option value="4">4+ кімнати</option>
+          </select>
+        </label>
+        <label class="catalog-filter__field">
+          <span>Сортування</span>
+          <select name="sort">
+            <option value="recommended">Рекомендовані</option>
+            <option value="price-asc">Спочатку дешевші</option>
+            <option value="price-desc">Спочатку дорожчі</option>
+          </select>
+        </label>
+        <button class="catalog-filter__submit" type="submit">
+          Застосувати
+        </button>
+      </form>
+      <p class="catalog-summary">
+        <strong>12</strong> об’єктів відповідають умовам
+      </p>
+      <section aria-label="Об’єкти нерухомості">
+        <article class="catalog-card catalog-card--featured property-feature">
+          <a class="property-feature__media atlas-frame" href="show.html"
+            ><img
+              class="catalog-card__image atlas-frame__image atlas-frame__image--first"
+              src="images/catalog-atlas.png"
+              alt="Пентхаус із панорамними вікнами"
+              width="1774"
+              height="887"
+              fetchpriority="high"
+            /><span class="property-feature__tag">Вибір редакції</span></a
+          >
+          <div class="property-feature__content">
+            <p class="catalog-card__eyebrow">Продаж · Печерськ</p>
+            <h2 class="catalog-card__title">Пентхаус із панорамою на місто</h2>
+            <p class="catalog-card__description">
+              Світлий простір із терасою, натуральними матеріалами й видом, що
+              відкривається над міським ритмом.
+            </p>
+            <dl class="property-meta">
+              <div>
+                <dt>Площа</dt>
+                <dd>120 м²</dd>
+              </div>
+              <div>
+                <dt>Кімнати</dt>
+                <dd>3</dd>
+              </div>
+              <div>
+                <dt>Поверх</dt>
+                <dd>21</dd>
+              </div>
+            </dl>
+            <div class="catalog-card__footer">
+              <strong class="catalog-card__price">18 500 000 ₴</strong
+              ><a class="text-link" href="show.html"
+                >Дивитися об’єкт <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </div>
+        </article>
+        <div class="property-pair">
+          <article class="catalog-card property-card">
+            <a class="property-card__media atlas-frame" href="show.html"
+              ><img
+                class="catalog-card__image atlas-frame__image atlas-frame__image--second"
+                src="images/catalog-atlas.png"
+                alt="Сучасний будинок серед сосен"
+                width="1774"
+                height="887"
+                loading="lazy"
+            /></a>
+            <div class="property-card__content">
+              <p class="catalog-card__eyebrow">Продаж · Передмістя</p>
+              <h2 class="catalog-card__title">Будинок серед сосен</h2>
+              <p class="catalog-card__description">
+                Приватний сад, тераса й ранкове світло у кожній кімнаті.
+              </p>
+              <div class="property-card__line">
+                <span>164 м² · 4 кімнати</span><strong>12 900 000 ₴</strong>
+              </div>
+            </div>
+          </article>
+          <article class="catalog-card property-card">
+            <a class="property-card__media atlas-frame" href="show.html"
+              ><img
+                class="catalog-card__image atlas-frame__image atlas-frame__image--third"
+                src="images/catalog-atlas.png"
+                alt="Лофт у будинку старого кварталу"
+                width="1774"
+                height="887"
+                loading="lazy"
+            /></a>
+            <div class="property-card__content">
+              <p class="catalog-card__eyebrow">Оренда · Старе місто</p>
+              <h2 class="catalog-card__title">Лофт у старому кварталі</h2>
+              <p class="catalog-card__description">
+                Цегла, висока стеля та гнучкий відкритий простір для життя й
+                роботи.
+              </p>
+              <div class="property-card__line">
+                <span>82 м² · 2 кімнати</span><strong>42 000 ₴ / міс.</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p class="site-footer__text">[ПІБ] · [ГРУПА]</p>
+      <p class="site-footer__meta">Варіант [№] · Property Editorial</p>
+    </footer>
+  </body>
+</html>

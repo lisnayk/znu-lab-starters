@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f3f5f8" />
+    <title>Каталог — [НАЗВА ПРОЄКТУ]</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page">
+    <a class="skip-link" href="#main-content">Перейти до вмісту</a>
+    <header class="site-header">
+      <a class="site-header__brand" href="index.html"
+        ><span class="site-header__logo" aria-hidden="true">&gt;_</span
+        ><span class="site-header__brand-copy"
+          >[НАЗВА ПРОЄКТУ]<small class="site-header__subtitle"
+            >computer store</small
+          ></span
+        ></a
+      >
+      <nav class="site-nav" aria-label="Головна навігація">
+        <a class="site-nav__link" href="index.html">Головна</a
+        ><a
+          class="site-nav__link site-nav__link--active"
+          href="catalog.html"
+          aria-current="page"
+          >Каталог</a
+        >
+      </nav>
+      <div class="site-header__tools">
+        <a class="site-header__action" href="mailto:author@example.com"
+          >Допомога з вибором</a
+        >
+        <details
+          class="notification-menu"
+          data-component="notification-center"
+          data-endpoint="/api/notifications"
+        >
+          <summary
+            class="notification-menu__trigger"
+            aria-label="Відкрити сповіщення"
+          >
+            <svg
+              class="notification-menu__icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              aria-hidden="true"
+            >
+              <path
+                d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+              />
+            </svg>
+            <span
+              class="notification-menu__badge"
+              data-notification-count
+              aria-label="2 нові сповіщення"
+            >
+              2
+            </span>
+          </summary>
+          <div class="notification-menu__panel">
+            <div class="notification-menu__header">
+              <div>
+                <p class="notification-menu__eyebrow">Останні події</p>
+                <h2 class="notification-menu__title">Сповіщення</h2>
+              </div>
+              <button
+                class="notification-menu__clear"
+                type="button"
+                data-action="mark-all-read"
+              >
+                Прочитати всі
+              </button>
+            </div>
+            <ul
+              class="notification-menu__list"
+              data-notification-list
+              aria-live="polite"
+            >
+              <li
+                class="notification-menu__item notification-menu__item--unread"
+                data-notification-id="demo-request"
+                data-event="request.received"
+              >
+                <span class="notification-menu__dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Заявку прийнято</strong>
+                  <p>Ми отримали ваше звернення.</p>
+                  <time datetime="2026-09-26T08:00:00">щойно</time>
+                </div>
+                <button
+                  class="notification-menu__read"
+                  type="button"
+                  data-action="mark-read"
+                  aria-label="Позначити сповіщення як прочитане"
+                >
+                  ✓
+                </button>
+              </li>
+              <li
+                class="notification-menu__item"
+                data-notification-id="demo-offer"
+                data-event="offer.updated"
+              >
+                <span class="notification-menu__dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Пропозицію оновлено</strong>
+                  <p>Змінилися умови або доступність.</p>
+                  <time datetime="2026-09-26T07:48:00">12 хв тому</time>
+                </div>
+                <button
+                  class="notification-menu__read"
+                  type="button"
+                  data-action="mark-read"
+                  aria-label="Позначити сповіщення як прочитане"
+                >
+                  ✓
+                </button>
+              </li>
+              <li
+                class="notification-menu__empty"
+                data-notification-empty
+                hidden
+              >
+                Нових сповіщень немає.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </header>
+    <main class="page__main" id="main-content">
+      <section class="catalog-heading" aria-labelledby="catalog-title">
+        <div>
+          <p class="eyebrow">
+            <span aria-hidden="true"></span> 12 моделей у каталозі
+          </p>
+          <h1 class="catalog-heading__title" id="catalog-title">
+            Каталог техніки
+          </h1>
+        </div>
+        <p>
+          Порівнюйте характеристики, формат отримання й сценарії використання.
+          Кожна картка веде до детальної сторінки пристрою.
+        </p>
+      </section>
+      <div class="catalog-layout">
+        <form class="tech-filter-panel" action="catalog.html" method="get">
+          <div class="tech-filter-panel__heading">
+            <strong>Фільтри</strong>
+            <button class="tech-filter-panel__reset" type="reset">
+              Очистити
+            </button>
+          </div>
+          <div class="tech-filter-panel__fields">
+            <fieldset class="tech-filter-panel__operations">
+              <legend>Операція</legend>
+              <label class="tech-filter-panel__option">
+                <input type="radio" name="operation" value="" checked />
+                <span>Усі</span>
+              </label>
+              <label class="tech-filter-panel__option">
+                <input type="radio" name="operation" value="sale" />
+                <span>Продаж</span>
+              </label>
+              <label class="tech-filter-panel__option">
+                <input type="radio" name="operation" value="rent" />
+                <span>Оренда</span>
+              </label>
+            </fieldset>
+            <label class="tech-filter-panel__field">
+              <span>Категорія</span>
+              <select name="category">
+                <option value="">Уся техніка</option>
+                <option value="laptop">Ноутбуки</option>
+                <option value="desktop">Настільні ПК</option>
+                <option value="monitor">Монітори</option>
+              </select>
+            </label>
+            <label class="tech-filter-panel__field">
+              <span>Сценарій</span>
+              <select name="usage">
+                <option value="">Будь-який</option>
+                <option value="work">Робота</option>
+                <option value="study">Навчання</option>
+                <option value="gaming">Ігри</option>
+                <option value="design">Дизайн</option>
+              </select>
+            </label>
+            <label class="tech-filter-panel__field">
+              <span>Сортування</span>
+              <select name="sort">
+                <option value="popular">За популярністю</option>
+                <option value="price-asc">Спочатку дешевші</option>
+                <option value="price-desc">Спочатку дорожчі</option>
+              </select>
+            </label>
+            <label class="tech-filter-panel__check">
+              <input type="checkbox" name="available" checked />
+              <span>Лише в наявності</span>
+            </label>
+            <button class="button button--cyan" type="submit">
+              Застосувати
+            </button>
+          </div>
+          <p class="tech-filter-panel__note">
+            Фільтри демонструють стан інтерфейсу. Їхню логіку студент реалізує в
+            наступних роботах.
+          </p>
+        </form>
+        <section class="catalog-results" aria-label="Результати каталогу">
+          <div class="catalog-toolbar">
+            <p class="catalog-toolbar__count"><strong>12</strong> моделей</p>
+            <label class="catalog-search">
+              <span class="catalog-search__label">Пошук у каталозі</span>
+              <input
+                class="catalog-search__input"
+                type="search"
+                name="search"
+                placeholder="Наприклад, ноутбук…"
+                autocomplete="off"
+              />
+            </label>
+          </div>
+          <div class="tech-grid" aria-label="Комп’ютерна техніка">
+            <article class="catalog-card catalog-card--featured tech-card">
+              <a class="tech-card__media atlas-frame" href="show.html"
+                ><img
+                  class="catalog-card__image atlas-frame__image atlas-frame__image--first"
+                  src="images/catalog-atlas.png"
+                  alt="Ноутбук AeroBook 14 Pro"
+                  width="1774"
+                  height="887"
+                  fetchpriority="high"
+                /><span class="tech-card__label">Хіт продажу</span></a
+              >
+              <div class="tech-card__body">
+                <div class="tech-card__meta">
+                  <p class="catalog-card__eyebrow">Ноутбук · робота</p>
+                  <span>В наявності</span>
+                </div>
+                <h2 class="catalog-card__title">AeroBook 14 Pro</h2>
+                <p class="catalog-card__description">
+                  Компактний ноутбук із якісним дисплеєм і автономністю на весь
+                  робочий день.
+                </p>
+                <dl class="tech-card__specs">
+                  <div>
+                    <dt>CPU</dt>
+                    <dd>Core Ultra 7</dd>
+                  </div>
+                  <div>
+                    <dt>RAM</dt>
+                    <dd>32 GB</dd>
+                  </div>
+                  <div>
+                    <dt>SSD</dt>
+                    <dd>1 TB</dd>
+                  </div>
+                </dl>
+                <div class="tech-card__footer">
+                  <strong class="catalog-card__price">54 900 ₴</strong
+                  ><a class="text-link" href="show.html">Переглянути →</a>
+                </div>
+              </div>
+            </article>
+            <article class="catalog-card tech-card">
+              <a class="tech-card__media atlas-frame" href="show.html"
+                ><img
+                  class="catalog-card__image atlas-frame__image atlas-frame__image--second"
+                  src="images/catalog-atlas.png"
+                  alt="Настільний комп’ютер Forge Station X"
+                  width="1774"
+                  height="887"
+                  loading="lazy"
+                /><span class="tech-card__label tech-card__label--violet"
+                  >Для ігор</span
+                ></a
+              >
+              <div class="tech-card__body">
+                <div class="tech-card__meta">
+                  <p class="catalog-card__eyebrow">Настільний ПК · gaming</p>
+                  <span>Під замовлення</span>
+                </div>
+                <h2 class="catalog-card__title">Forge Station X</h2>
+                <p class="catalog-card__description">
+                  Збалансована конфігурація для ігор, стримінгу та роботи з
+                  тривимірною графікою.
+                </p>
+                <dl class="tech-card__specs">
+                  <div>
+                    <dt>GPU</dt>
+                    <dd>RTX 5070</dd>
+                  </div>
+                  <div>
+                    <dt>RAM</dt>
+                    <dd>32 GB</dd>
+                  </div>
+                  <div>
+                    <dt>SSD</dt>
+                    <dd>2 TB</dd>
+                  </div>
+                </dl>
+                <div class="tech-card__footer">
+                  <strong class="catalog-card__price">78 400 ₴</strong
+                  ><a class="text-link" href="show.html">Переглянути →</a>
+                </div>
+              </div>
+            </article>
+            <article class="catalog-card tech-card">
+              <a class="tech-card__media atlas-frame" href="show.html"
+                ><img
+                  class="catalog-card__image atlas-frame__image atlas-frame__image--third"
+                  src="images/catalog-atlas.png"
+                  alt="Широкоформатний монітор Horizon 34Q"
+                  width="1774"
+                  height="887"
+                  loading="lazy"
+                /><span class="tech-card__label tech-card__label--green"
+                  >Для дизайну</span
+                ></a
+              >
+              <div class="tech-card__body">
+                <div class="tech-card__meta">
+                  <p class="catalog-card__eyebrow">Монітор · творчість</p>
+                  <span>В наявності</span>
+                </div>
+                <h2 class="catalog-card__title">Horizon 34Q</h2>
+                <p class="catalog-card__description">
+                  Ультраширокий дисплей із точним кольором і зручним простором
+                  для кількох вікон.
+                </p>
+                <dl class="tech-card__specs">
+                  <div>
+                    <dt>Діагональ</dt>
+                    <dd>34″</dd>
+                  </div>
+                  <div>
+                    <dt>Частота</dt>
+                    <dd>165 Hz</dd>
+                  </div>
+                  <div>
+                    <dt>Матриця</dt>
+                    <dd>IPS</dd>
+                  </div>
+                </dl>
+                <div class="tech-card__footer">
+                  <strong class="catalog-card__price">31 900 ₴</strong
+                  ><a class="text-link" href="show.html">Переглянути →</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <p class="site-footer__text">[ПІБ] · [ГРУПА]</p>
+      <p class="site-footer__meta">Варіант [№] · Tech Showcase</p>
+    </footer>
+  </body>
+</html>

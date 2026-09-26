@@ -5,3 +5,4 @@
 ## Лабораторні роботи
 
 - [Лабораторна робота № 1](labs/01-http-basics/starter/)
+- [Лабораторна робота № 2](labs/02-app-models/starter/)

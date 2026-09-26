@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#5a2333" />
+    <title>Головна — [НАЗВА ПРОЄКТУ]</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="partners.js" defer></script>
+  </head>
+  <body class="page">
+    <a class="skip-link" href="#main-content">Перейти до вмісту</a>
+    <header class="site-header">
+      <a class="site-header__brand" href="index.html"
+        ><span class="site-header__mark" aria-hidden="true">К</span
+        ><span class="site-header__brand-copy"
+          >[НАЗВА ПРОЄКТУ]<small class="site-header__subtitle"
+            >книги з історією</small
+          ></span
+        ></a
+      >
+      <nav class="site-nav" aria-label="Головна навігація">
+        <a
+          class="site-nav__link site-nav__link--active"
+          href="index.html"
+          aria-current="page"
+          >Головна</a
+        ><a class="site-nav__link" href="catalog.html">Книгарня</a>
+      </nav>
+      <div class="site-header__tools">
+        <a class="site-header__contact" href="mailto:author@example.com"
+          >Запропонувати книгу</a
+        >
+        <details
+          class="notification-menu"
+          data-component="notification-center"
+          data-endpoint="/api/notifications"
+        >
+          <summary
+            class="notification-menu__trigger"
+            aria-label="Відкрити сповіщення"
+          >
+            <svg
+              class="notification-menu__icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              aria-hidden="true"
+            >
+              <path
+                d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+              />
+            </svg>
+            <span
+              class="notification-menu__badge"
+              data-notification-count
+              aria-label="2 нові сповіщення"
+            >
+              2
+            </span>
+          </summary>
+          <div class="notification-menu__panel">
+            <div class="notification-menu__header">
+              <div>
+                <p class="notification-menu__eyebrow">Останні події</p>
+                <h2 class="notification-menu__title">Сповіщення</h2>
+              </div>
+              <button
+                class="notification-menu__clear"
+                type="button"
+                data-action="mark-all-read"
+              >
+                Прочитати всі
+              </button>
+            </div>
+            <ul
+              class="notification-menu__list"
+              data-notification-list
+              aria-live="polite"
+            >
+              <li
+                class="notification-menu__item notification-menu__item--unread"
+                data-notification-id="demo-request"
+                data-event="request.received"
+              >
+                <span class="notification-menu__dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Заявку прийнято</strong>
+                  <p>Ми отримали ваше звернення.</p>
+                  <time datetime="2026-09-26T08:00:00">щойно</time>
+                </div>
+                <button
+                  class="notification-menu__read"
+                  type="button"
+                  data-action="mark-read"
+                  aria-label="Позначити сповіщення як прочитане"
+                >
+                  ✓
+                </button>
+              </li>
+              <li
+                class="notification-menu__item"
+                data-notification-id="demo-offer"
+                data-event="offer.updated"
+              >
+                <span class="notification-menu__dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Пропозицію оновлено</strong>
+                  <p>Змінилися умови або доступність.</p>
+                  <time datetime="2026-09-26T07:48:00">12 хв тому</time>
+                </div>
+                <button
+                  class="notification-menu__read"
+                  type="button"
+                  data-action="mark-read"
+                  aria-label="Позначити сповіщення як прочитане"
+                >
+                  ✓
+                </button>
+              </li>
+              <li
+                class="notification-menu__empty"
+                data-notification-empty
+                hidden
+              >
+                Нових сповіщень немає.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </header>
+    <main class="page__main" id="main-content">
+      <section class="book-hero">
+        <div class="book-hero__copy">
+          <p class="eyebrow">Незалежна книжкова добірка</p>
+          <h1 class="book-hero__title">
+            Книги, до яких хочеться <em>повертатися.</em>
+          </h1>
+          <p class="book-hero__lead">
+            Купуйте або беріть в оренду видання з перевіреним станом.
+          </p>
+          <a class="button" href="catalog.html">Переглянути добірку</a>
+        </div>
+        <form class="book-search" action="catalog.html" method="get">
+          <p class="book-search__title">Знайти наступну книгу</p>
+          <fieldset class="operation-switch">
+            <legend class="visually-hidden">Операція</legend>
+            <label class="operation-switch__option"
+              ><input type="radio" name="operation" value="sale" checked /><span
+                >Продаж</span
+              ></label
+            >
+            <label class="operation-switch__option"
+              ><input type="radio" name="operation" value="rent" /><span
+                >Оренда</span
+              ></label
+            >
+          </fieldset>
+          <label class="field"
+            ><span class="field__label">Назва або автор</span
+            ><input
+              class="field__control"
+              type="search"
+              name="query"
+              placeholder="Почніть вводити..."
+              autocomplete="off"
+          /></label>
+          <div class="book-search__row">
+            <label class="field"
+              ><span class="field__label">Жанр</span
+              ><select class="field__control" name="genre">
+                <option>Усі жанри</option>
+                <option>Художня</option>
+                <option>Нон-фікшн</option>
+                <option>Професійна</option>
+              </select></label
+            >
+            <label class="field"
+              ><span class="field__label">Бюджет, ₴</span
+              ><input
+                class="field__control"
+                type="number"
+                name="budget"
+                placeholder="до 500"
+                autocomplete="off"
+            /></label>
+          </div>
+          <button class="button button--mustard" type="submit">
+            Шукати в каталозі
+          </button>
+        </form>
+      </section>
+      <section
+        class="book-section book-section--recommendations"
+        aria-labelledby="recommended-books-title"
+      >
+        <div class="book-section__heading">
+          <div>
+            <p class="eyebrow">Добірка для читання</p>
+            <h2 class="book-section__title" id="recommended-books-title">
+              Рекомендовані книги
+            </h2>
+          </div>
+          <a class="text-link" href="catalog.html">Усі 12 видань →</a>
+        </div>
+        <div class="book-grid">
+          <article class="catalog-card catalog-card--featured book-card">
+            <a class="book-card__media atlas-frame" href="show.html"
+              ><img
+                class="catalog-card__image atlas-frame__image atlas-frame__image--first"
+                src="images/catalog-atlas.png"
+                alt="Стос книжок із відкритим виданням"
+                width="1774"
+                height="887"
+                loading="lazy"
+              /><span class="book-card__badge">Вибір тижня</span></a
+            >
+            <div class="book-card__body">
+              <p class="catalog-card__eyebrow">Есеї · продаж</p>
+              <h3 class="catalog-card__title">Місто і його невидимі історії</h3>
+              <p class="catalog-card__description">
+                Тверда обкладинка · українська · 256 сторінок
+              </p>
+              <div class="book-card__footer">
+                <strong class="catalog-card__price">480 ₴</strong
+                ><a class="text-link" href="show.html">До книги →</a>
+              </div>
+            </div>
+          </article>
+          <article class="catalog-card book-card">
+            <a class="book-card__media atlas-frame" href="show.html"
+              ><img
+                class="catalog-card__image atlas-frame__image atlas-frame__image--second"
+                src="images/catalog-atlas.png"
+                alt="Книга у затишному місці для читання"
+                width="1774"
+                height="887"
+                loading="lazy"
+              /><span class="book-card__badge book-card__badge--mustard"
+                >Оренда</span
+              ></a
+            >
+            <div class="book-card__body">
+              <p class="catalog-card__eyebrow">Художня · оренда</p>
+              <h3 class="catalog-card__title">Сад після останнього дощу</h3>
+              <p class="catalog-card__description">
+                М’яка обкладинка · українська · 320 сторінок
+              </p>
+              <div class="book-card__footer">
+                <strong class="catalog-card__price">90 ₴ / тиждень</strong
+                ><a class="text-link" href="show.html">До книги →</a>
+              </div>
+            </div>
+          </article>
+          <article class="catalog-card book-card">
+            <a class="book-card__media atlas-frame" href="show.html"
+              ><img
+                class="catalog-card__image atlas-frame__image atlas-frame__image--third"
+                src="images/catalog-atlas.png"
+                alt="Професійні книги на робочому столі"
+                width="1774"
+                height="887"
+                loading="lazy"
+              /><span class="book-card__badge">Для роботи</span></a
+            >
+            <div class="book-card__body">
+              <p class="catalog-card__eyebrow">Дизайн · продаж</p>
+              <h3 class="catalog-card__title">Практика сучасного дизайну</h3>
+              <p class="catalog-card__description">
+                Тверда обкладинка · англійська · 412 сторінок
+              </p>
+              <div class="book-card__footer">
+                <strong class="catalog-card__price">760 ₴</strong
+                ><a class="text-link" href="show.html">До книги →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section
+        class="reading-note"
+        id="featured"
+        aria-labelledby="book-pick-title"
+      >
+        <div class="atlas-frame reading-note__media">
+          <img
+            class="atlas-frame__image atlas-frame__image--first"
+            src="images/catalog-atlas.png"
+            alt="Добірка книг у бордових і кремових обкладинках"
+            width="1774"
+            height="887"
+            loading="lazy"
+          />
+        </div>
+        <div class="reading-note__content">
+          <p class="eyebrow">Книга тижня · продаж</p>
+          <h2 class="reading-note__title" id="book-pick-title">
+            Місто і його невидимі історії
+          </h2>
+          <p>
+            Збірка коротких есеїв про пам’ять місць, архітектуру та людей, які
+            змінюють міський простір.
+          </p>
+          <div class="reading-note__meta">
+            <span>Тверда обкладинка</span><span>Українська</span
+            ><span>256 сторінок</span><strong>480 ₴</strong>
+          </div>
+          <a class="button" href="show.html">Переглянути книгу</a>
+        </div>
+      </section>
+    </main>
+    <section class="partners" aria-labelledby="partners-title">
+      <div class="partners__heading">
+        <div>
+          <p class="partners__eyebrow">Співпраця</p>
+          <h2 class="partners__title" id="partners-title">Наші партнери</h2>
+        </div>
+        <p class="partners__text">
+          Компанії, які допомагають перевіряти пропозиції, організовувати
+          отримання та підтримувати якість сервісу.
+        </p>
+      </div>
+      <div class="partners__slider" data-partners-slider>
+        <button
+          class="partners__control"
+          type="button"
+          data-action="partners-previous"
+          aria-label="Показати попередні логотипи"
+          aria-controls="partners-viewport"
+          disabled
+        >
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path
+              d="m15 5-7 7 7 7"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+        <div
+          class="partners__viewport"
+          id="partners-viewport"
+          data-partners-viewport
+          role="region"
+          aria-label="Логотипи партнерів"
+          tabindex="0"
+        >
+          <div class="partners__track">
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-nova"></use>
+              </svg>
+              <span class="partner-logo__name">NOVA</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-orbit"></use>
+              </svg>
+              <span class="partner-logo__name">ORBIT</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-vector"></use>
+              </svg>
+              <span class="partner-logo__name">VECTOR</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-form"></use>
+              </svg>
+              <span class="partner-logo__name">FORMA</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-pulse"></use>
+              </svg>
+              <span class="partner-logo__name">PULSE</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-nexus"></use>
+              </svg>
+              <span class="partner-logo__name">NEXUS</span>
+            </div>
+          </div>
+        </div>
+        <button
+          class="partners__control"
+          type="button"
+          data-action="partners-next"
+          aria-label="Показати наступні логотипи"
+          aria-controls="partners-viewport"
+        >
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path
+              d="m9 5 7 7-7 7"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <p class="site-footer__text">[ПІБ] · [ГРУПА]</p>
+      <p class="site-footer__meta">Варіант [№] · Book Exchange</p>
+    </footer>
+  </body>
+</html>

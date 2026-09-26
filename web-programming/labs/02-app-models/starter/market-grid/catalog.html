@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f2efe7" />
+    <title>Каталог — [НАЗВА ПРОЄКТУ]</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page">
+    <a class="skip-link" href="#main-content">Перейти до вмісту</a>
+
+    <header class="site-header">
+      <a class="site-header__brand" href="index.html">
+        <span class="site-header__mark" aria-hidden="true">M</span>
+        <span>[НАЗВА ПРОЄКТУ]</span>
+      </a>
+      <nav class="site-nav" aria-label="Головна навігація">
+        <a class="site-nav__link" href="index.html">Головна</a>
+        <a
+          class="site-nav__link site-nav__link--active"
+          href="catalog.html"
+          aria-current="page"
+          >Каталог</a
+        >
+      </nav>
+      <div class="site-header__tools">
+        <a class="site-header__action" href="catalog.html">
+          Обране <span class="site-header__count">0</span>
+        </a>
+        <details
+          class="notification-menu"
+          data-component="notification-center"
+          data-endpoint="/api/notifications"
+        >
+          <summary
+            class="notification-menu__trigger"
+            aria-label="Відкрити сповіщення"
+          >
+            <svg
+              class="notification-menu__icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              aria-hidden="true"
+            >
+              <path
+                d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+              />
+            </svg>
+            <span
+              class="notification-menu__badge"
+              data-notification-count
+              aria-label="2 нові сповіщення"
+            >
+              2
+            </span>
+          </summary>
+          <div class="notification-menu__panel">
+            <div class="notification-menu__header">
+              <div>
+                <p class="notification-menu__eyebrow">Останні події</p>
+                <h2 class="notification-menu__title">Сповіщення</h2>
+              </div>
+              <button
+                class="notification-menu__clear"
+                type="button"
+                data-action="mark-all-read"
+              >
+                Прочитати всі
+              </button>
+            </div>
+            <ul
+              class="notification-menu__list"
+              data-notification-list
+              aria-live="polite"
+            >
+              <li
+                class="notification-menu__item notification-menu__item--unread"
+                data-notification-id="demo-request"
+                data-event="request.received"
+              >
+                <span class="notification-menu__dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Заявку прийнято</strong>
+                  <p>Ми отримали ваше звернення.</p>
+                  <time datetime="2026-09-26T08:00:00">щойно</time>
+                </div>
+                <button
+                  class="notification-menu__read"
+                  type="button"
+                  data-action="mark-read"
+                  aria-label="Позначити сповіщення як прочитане"
+                >
+                  ✓
+                </button>
+              </li>
+              <li
+                class="notification-menu__item"
+                data-notification-id="demo-offer"
+                data-event="offer.updated"
+              >
+                <span class="notification-menu__dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Пропозицію оновлено</strong>
+                  <p>Змінилися умови або доступність.</p>
+                  <time datetime="2026-09-26T07:48:00">12 хв тому</time>
+                </div>
+                <button
+                  class="notification-menu__read"
+                  type="button"
+                  data-action="mark-read"
+                  aria-label="Позначити сповіщення як прочитане"
+                >
+                  ✓
+                </button>
+              </li>
+              <li
+                class="notification-menu__empty"
+                data-notification-empty
+                hidden
+              >
+                Нових сповіщень немає.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <main class="page__main" id="main-content">
+      <section class="catalog-intro" aria-labelledby="catalog-title">
+        <div class="catalog-intro__heading">
+          <p class="catalog-intro__eyebrow">Автомобілі · 12 пропозицій</p>
+          <h1 class="catalog-intro__title" id="catalog-title">
+            Оберіть авто
+            <em>для свого ритму.</em>
+          </h1>
+        </div>
+        <p class="catalog-intro__text">
+          Перевірені автомобілі з історією, характеристиками та зрозумілими
+          умовами. Порівнюйте варіанти й переходьте до детального огляду.
+        </p>
+      </section>
+
+      <div class="catalog-layout">
+        <aside class="filter-panel" aria-label="Фільтри каталогу">
+          <div class="filter-panel__heading">
+            <strong>Фільтри</strong>
+            <button class="filter-panel__reset" type="button">Очистити</button>
+          </div>
+
+          <fieldset class="filter-group">
+            <legend class="filter-group__title">Тип кузова</legend>
+            <label class="filter-option">
+              <input type="checkbox" name="body" value="all" checked />
+              <span>Усі автомобілі</span>
+              <span class="filter-option__count">12</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" name="body" value="crossover" />
+              <span>Кросовери</span>
+              <span class="filter-option__count">5</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" name="body" value="sedan" />
+              <span>Седани</span>
+              <span class="filter-option__count">4</span>
+            </label>
+            <label class="filter-option">
+              <input type="checkbox" name="body" value="electric" />
+              <span>Електромобілі</span>
+              <span class="filter-option__count">3</span>
+            </label>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend class="filter-group__title">Ціна</legend>
+            <div class="price-range">
+              <span class="price-range__value">від 10 000 $</span>
+              <span class="price-range__value">до 60 000 $</span>
+            </div>
+          </fieldset>
+
+          <p class="filter-panel__note">
+            Фільтри демонструють стан інтерфейсу. Їхню логіку студент реалізує в
+            наступних роботах.
+          </p>
+        </aside>
+
+        <section class="catalog-results" aria-label="Результати каталогу">
+          <div class="catalog-toolbar">
+            <p class="catalog-toolbar__count">
+              <strong>12</strong> результатів
+            </p>
+            <label class="catalog-search">
+              <span class="catalog-search__label">Пошук у каталозі</span>
+              <span class="catalog-search__icon" aria-hidden="true">⌕</span>
+              <input
+                class="catalog-search__input"
+                type="search"
+                name="search"
+                placeholder="Наприклад, кросовер…"
+                autocomplete="off"
+              />
+            </label>
+            <button class="catalog-toolbar__sort" type="button">
+              Спочатку нові
+              <span aria-hidden="true">↓</span>
+            </button>
+          </div>
+
+          <div class="catalog-grid">
+            <article class="catalog-card catalog-card--featured">
+              <div class="catalog-card__media">
+                <span class="catalog-card__badge">Вибір редакції</span>
+                <button
+                  class="catalog-card__favorite"
+                  type="button"
+                  aria-label="Додати кросовер Terra X в обране"
+                >
+                  <span aria-hidden="true">♡</span>
+                </button>
+                <img
+                  class="catalog-card__image"
+                  src="images/catalog-atlas.png"
+                  width="1774"
+                  height="887"
+                  fetchpriority="high"
+                  alt="Золотистий кросовер Terra X"
+                />
+              </div>
+              <div class="catalog-card__body">
+                <p class="catalog-card__eyebrow">Кросовер · Продаж</p>
+                <h2 class="catalog-card__title">Кросовер Terra X</h2>
+                <p class="catalog-card__description">
+                  2022 рік, пробіг 34 000 км, автоматична коробка та повна
+                  історія обслуговування.
+                </p>
+                <div class="catalog-card__footer">
+                  <strong class="catalog-card__price">28 900 $</strong>
+                  <a class="catalog-card__link" href="show.html">
+                    Переглянути <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="catalog-card">
+              <div class="catalog-card__media catalog-card__media--two">
+                <span class="catalog-card__badge catalog-card__badge--new"
+                  >Нове</span
+                >
+                <button
+                  class="catalog-card__favorite"
+                  type="button"
+                  aria-label="Додати седан Aurora S в обране"
+                >
+                  <span aria-hidden="true">♡</span>
+                </button>
+                <img
+                  class="catalog-card__image"
+                  src="images/catalog-atlas.png"
+                  width="1774"
+                  height="887"
+                  loading="lazy"
+                  alt="Темно-синій седан Aurora S"
+                />
+              </div>
+              <div class="catalog-card__body">
+                <p class="catalog-card__eyebrow">Седан · Оренда</p>
+                <h2 class="catalog-card__title">Седан Aurora S</h2>
+                <p class="catalog-card__description">
+                  2021 рік, бензиновий двигун, автоматична коробка та просторий
+                  салон.
+                </p>
+                <div class="catalog-card__footer">
+                  <strong class="catalog-card__price">65 $ / добу</strong>
+                  <a class="catalog-card__link" href="show.html">
+                    Переглянути <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="catalog-card">
+              <div class="catalog-card__media catalog-card__media--three">
+                <button
+                  class="catalog-card__favorite"
+                  type="button"
+                  aria-label="Додати хетчбек Volt E в обране"
+                >
+                  <span aria-hidden="true">♡</span>
+                </button>
+                <img
+                  class="catalog-card__image"
+                  src="images/catalog-atlas.png"
+                  width="1774"
+                  height="887"
+                  loading="lazy"
+                  alt="Теракотовий електричний хетчбек Volt E"
+                />
+              </div>
+              <div class="catalog-card__body">
+                <p class="catalog-card__eyebrow">Електромобіль · Продаж</p>
+                <h2 class="catalog-card__title">Хетчбек Volt E</h2>
+                <p class="catalog-card__description">
+                  2023 рік, запас ходу 420 км і швидке заряджання постійним
+                  струмом.
+                </p>
+                <div class="catalog-card__footer">
+                  <strong class="catalog-card__price">31 500 $</strong>
+                  <a class="catalog-card__link" href="show.html">
+                    Переглянути <span aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p class="site-footer__text">[ПІБ] · [ГРУПА]</p>
+      <p class="site-footer__meta">Варіант [№] · тема Market Grid</p>
+    </footer>
+  </body>
+</html>

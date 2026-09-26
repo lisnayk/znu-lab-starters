@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f2efe7" />
+    <title>Головна — [НАЗВА ПРОЄКТУ]</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="partners.js" defer></script>
+  </head>
+  <body class="page">
+    <a class="skip-link" href="#main-content">Перейти до вмісту</a>
+
+    <header class="site-header">
+      <a class="site-header__brand" href="index.html">
+        <span class="site-header__mark" aria-hidden="true">M</span>
+        <span>[НАЗВА ПРОЄКТУ]</span>
+      </a>
+      <nav class="site-nav" aria-label="Головна навігація">
+        <a
+          class="site-nav__link site-nav__link--active"
+          href="index.html"
+          aria-current="page"
+          >Головна</a
+        >
+        <a class="site-nav__link" href="catalog.html">Каталог</a>
+      </nav>
+      <div class="site-header__tools">
+        <a class="site-header__action" href="catalog.html">
+          Обране <span class="site-header__count">0</span>
+        </a>
+        <details
+          class="notification-menu"
+          data-component="notification-center"
+          data-endpoint="/api/notifications"
+        >
+          <summary
+            class="notification-menu__trigger"
+            aria-label="Відкрити сповіщення"
+          >
+            <svg
+              class="notification-menu__icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              aria-hidden="true"
+            >
+              <path
+                d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+              />
+            </svg>
+            <span
+              class="notification-menu__badge"
+              data-notification-count
+              aria-label="2 нові сповіщення"
+            >
+              2
+            </span>
+          </summary>
+          <div class="notification-menu__panel">
+            <div class="notification-menu__header">
+              <div>
+                <p class="notification-menu__eyebrow">Останні події</p>
+                <h2 class="notification-menu__title">Сповіщення</h2>
+              </div>
+              <button
+                class="notification-menu__clear"
+                type="button"
+                data-action="mark-all-read"
+              >
+                Прочитати всі
+              </button>
+            </div>
+            <ul
+              class="notification-menu__list"
+              data-notification-list
+              aria-live="polite"
+            >
+              <li
+                class="notification-menu__item notification-menu__item--unread"
+                data-notification-id="demo-request"
+                data-event="request.received"
+              >
+                <span class="notification-menu__dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Заявку прийнято</strong>
+                  <p>Ми отримали ваше звернення.</p>
+                  <time datetime="2026-09-26T08:00:00">щойно</time>
+                </div>
+                <button
+                  class="notification-menu__read"
+                  type="button"
+                  data-action="mark-read"
+                  aria-label="Позначити сповіщення як прочитане"
+                >
+                  ✓
+                </button>
+              </li>
+              <li
+                class="notification-menu__item"
+                data-notification-id="demo-offer"
+                data-event="offer.updated"
+              >
+                <span class="notification-menu__dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Пропозицію оновлено</strong>
+                  <p>Змінилися умови або доступність.</p>
+                  <time datetime="2026-09-26T07:48:00">12 хв тому</time>
+                </div>
+                <button
+                  class="notification-menu__read"
+                  type="button"
+                  data-action="mark-read"
+                  aria-label="Позначити сповіщення як прочитане"
+                >
+                  ✓
+                </button>
+              </li>
+              <li
+                class="notification-menu__empty"
+                data-notification-empty
+                hidden
+              >
+                Нових сповіщень немає.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </header>
+
+    <main class="page__main" id="main-content">
+      <section class="hero">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Автомаркет · перевірені пропозиції</p>
+          <h1 class="hero__title">
+            Знайдіть авто,
+            <em>яке підходить.</em>
+          </h1>
+          <p class="hero__text">
+            Перевірені автомобілі для міста, подорожей і щоденних справ. Чіткі
+            характеристики, історія та прямий контакт із власником.
+          </p>
+          <div class="hero__actions">
+            <a class="button" href="catalog.html">Переглянути автомобілі</a>
+            <a class="hero__secondary" href="#featured">Авто тижня</a>
+          </div>
+          <dl class="hero-stats">
+            <div class="hero-stats__item">
+              <dt class="hero-stats__value">12</dt>
+              <dd class="hero-stats__label">автомобілів</dd>
+            </div>
+            <div class="hero-stats__item">
+              <dt class="hero-stats__value">8</dt>
+              <dd class="hero-stats__label">марок</dd>
+            </div>
+            <div class="hero-stats__item">
+              <dt class="hero-stats__value">2</dt>
+              <dd class="hero-stats__label">формати угоди</dd>
+            </div>
+          </dl>
+        </div>
+
+        <form class="search-panel" action="catalog.html" method="get">
+          <fieldset class="search-panel__mode">
+            <legend class="visually-hidden">Операція</legend>
+            <label class="search-panel__tab">
+              <input
+                class="search-panel__radio"
+                type="radio"
+                name="operation"
+                value="sale"
+                checked
+              />
+              <span>Продаж</span>
+            </label>
+            <label class="search-panel__tab">
+              <input
+                class="search-panel__radio"
+                type="radio"
+                name="operation"
+                value="rent"
+              />
+              <span>Оренда</span>
+            </label>
+          </fieldset>
+
+          <div class="search-panel__fields">
+            <label class="search-field">
+              <span class="search-field__label">Марка</span>
+              <select class="search-field__control" name="brand">
+                <option value="">Усі марки</option>
+                <option value="terra">Terra</option>
+                <option value="aurora">Aurora</option>
+                <option value="volt">Volt</option>
+              </select>
+            </label>
+
+            <label class="search-field">
+              <span class="search-field__label">Тип кузова</span>
+              <select class="search-field__control" name="body">
+                <option value="">Будь-який</option>
+                <option value="crossover">Кросовер</option>
+                <option value="sedan">Седан</option>
+                <option value="hatchback">Хетчбек</option>
+              </select>
+            </label>
+
+            <label class="search-field">
+              <span class="search-field__label">Рік від</span>
+              <input
+                class="search-field__control"
+                type="number"
+                name="year_from"
+                min="0"
+                autocomplete="off"
+                inputmode="numeric"
+                placeholder="2018"
+              />
+            </label>
+
+            <label class="search-field">
+              <span class="search-field__label">Бюджет до</span>
+              <input
+                class="search-field__control"
+                type="number"
+                name="price_to"
+                min="0"
+                autocomplete="off"
+                inputmode="numeric"
+                placeholder="35 000"
+              />
+            </label>
+          </div>
+
+          <button class="search-panel__submit" type="submit">
+            Знайти автомобілі <span aria-hidden="true">→</span>
+          </button>
+          <p class="search-panel__note">
+            Марку, кузов і бюджет буде передано до каталогу через рядок запиту.
+          </p>
+        </form>
+      </section>
+
+      <section class="section" aria-labelledby="featured-title">
+        <div class="section__heading">
+          <div>
+            <p class="section__eyebrow">Добірка</p>
+            <h2 class="section__title" id="featured-title">
+              Рекомендовані автомобілі
+            </h2>
+          </div>
+          <a class="section__link" href="catalog.html"
+            >Усі 12 автомобілів <span aria-hidden="true">→</span></a
+          >
+        </div>
+
+        <div class="catalog-grid catalog-grid--home">
+          <article class="catalog-card catalog-card--featured">
+            <div class="catalog-card__media">
+              <span class="catalog-card__badge">Вибір редакції</span>
+              <img
+                class="catalog-card__image"
+                src="images/catalog-atlas.png"
+                width="1774"
+                height="887"
+                loading="lazy"
+                alt="Золотистий кросовер Terra X"
+              />
+            </div>
+            <div class="catalog-card__body">
+              <p class="catalog-card__eyebrow">Кросовер · Продаж</p>
+              <h3 class="catalog-card__title">Кросовер Terra X</h3>
+              <p class="catalog-card__description">
+                2022 рік · 34 000 км · автомат.
+              </p>
+              <div class="catalog-card__footer">
+                <strong class="catalog-card__price">28 900 $</strong>
+                <a class="catalog-card__link" href="show.html"
+                  >Переглянути <span aria-hidden="true">↗</span></a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="catalog-card">
+            <div class="catalog-card__media catalog-card__media--two">
+              <span class="catalog-card__badge catalog-card__badge--new"
+                >Нове</span
+              >
+              <img
+                class="catalog-card__image"
+                src="images/catalog-atlas.png"
+                width="1774"
+                height="887"
+                loading="lazy"
+                alt="Темно-синій седан Aurora S"
+              />
+            </div>
+            <div class="catalog-card__body">
+              <p class="catalog-card__eyebrow">Седан · Оренда</p>
+              <h3 class="catalog-card__title">Седан Aurora S</h3>
+              <p class="catalog-card__description">
+                2021 рік · бензин · автомат.
+              </p>
+              <div class="catalog-card__footer">
+                <strong class="catalog-card__price">65 $ / добу</strong>
+                <a class="catalog-card__link" href="show.html"
+                  >Переглянути <span aria-hidden="true">↗</span></a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="catalog-card">
+            <div class="catalog-card__media catalog-card__media--three">
+              <img
+                class="catalog-card__image"
+                src="images/catalog-atlas.png"
+                width="1774"
+                height="887"
+                loading="lazy"
+                alt="Теракотовий електричний хетчбек Volt E"
+              />
+            </div>
+            <div class="catalog-card__body">
+              <p class="catalog-card__eyebrow">Електромобіль · Продаж</p>
+              <h3 class="catalog-card__title">Хетчбек Volt E</h3>
+              <p class="catalog-card__description">
+                2023 рік · запас ходу 420 км.
+              </p>
+              <div class="catalog-card__footer">
+                <strong class="catalog-card__price">31 500 $</strong>
+                <a class="catalog-card__link" href="show.html"
+                  >Переглянути <span aria-hidden="true">↗</span></a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="feature-pick" id="featured" aria-labelledby="pick-title">
+        <div class="feature-pick__media">
+          <img
+            class="feature-pick__image"
+            src="images/catalog-atlas.png"
+            width="1774"
+            height="887"
+            loading="lazy"
+            alt="Золотистий кросовер Terra X"
+          />
+        </div>
+        <div class="feature-pick__content">
+          <p class="feature-pick__eyebrow">Авто тижня · Terra X</p>
+          <h2 class="feature-pick__title" id="pick-title">
+            Кросовер для міста й подорожей
+          </h2>
+          <strong class="feature-pick__price">28 900 $</strong>
+
+          <dl class="feature-pick__facts">
+            <div class="feature-pick__fact">
+              <dt>2022</dt>
+              <dd>рік</dd>
+            </div>
+            <div class="feature-pick__fact">
+              <dt>34 тис.</dt>
+              <dd>пробіг, км</dd>
+            </div>
+            <div class="feature-pick__fact">
+              <dt>2,0 л</dt>
+              <dd>двигун</dd>
+            </div>
+          </dl>
+
+          <p class="feature-pick__text">
+            Комфортний салон, автоматична коробка й повна історія
+            обслуговування. Характеристики зібрані в одному оголошенні для
+            швидкого рішення.
+          </p>
+          <div class="feature-pick__actions">
+            <a class="button" href="show.html">Переглянути автомобіль</a>
+            <a class="feature-pick__link" href="catalog.html">Усі автомобілі</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="partners" aria-labelledby="partners-title">
+      <div class="partners__heading">
+        <div>
+          <p class="partners__eyebrow">Співпраця</p>
+          <h2 class="partners__title" id="partners-title">Наші партнери</h2>
+        </div>
+        <p class="partners__text">
+          Компанії, які допомагають перевіряти пропозиції, організовувати
+          отримання та підтримувати якість сервісу.
+        </p>
+      </div>
+      <div class="partners__slider" data-partners-slider>
+        <button
+          class="partners__control"
+          type="button"
+          data-action="partners-previous"
+          aria-label="Показати попередні логотипи"
+          aria-controls="partners-viewport"
+          disabled
+        >
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path
+              d="m15 5-7 7 7 7"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+        <div
+          class="partners__viewport"
+          id="partners-viewport"
+          data-partners-viewport
+          role="region"
+          aria-label="Логотипи партнерів"
+          tabindex="0"
+        >
+          <div class="partners__track">
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-nova"></use>
+              </svg>
+              <span class="partner-logo__name">NOVA</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-orbit"></use>
+              </svg>
+              <span class="partner-logo__name">ORBIT</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-vector"></use>
+              </svg>
+              <span class="partner-logo__name">VECTOR</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-form"></use>
+              </svg>
+              <span class="partner-logo__name">FORMA</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-pulse"></use>
+              </svg>
+              <span class="partner-logo__name">PULSE</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-nexus"></use>
+              </svg>
+              <span class="partner-logo__name">NEXUS</span>
+            </div>
+          </div>
+        </div>
+        <button
+          class="partners__control"
+          type="button"
+          data-action="partners-next"
+          aria-label="Показати наступні логотипи"
+          aria-controls="partners-viewport"
+        >
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path
+              d="m9 5 7 7-7 7"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <p class="site-footer__text">[ПІБ] · [ГРУПА]</p>
+      <p class="site-footer__meta">Варіант [№] · тема Market Grid</p>
+    </footer>
+  </body>
+</html>

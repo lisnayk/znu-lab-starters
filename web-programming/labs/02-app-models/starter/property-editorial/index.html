@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2f4438" />
+    <title>Головна — [НАЗВА ПРОЄКТУ]</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="partners.js" defer></script>
+  </head>
+  <body class="page">
+    <a class="skip-link" href="#main-content">Перейти до вмісту</a>
+    <header class="site-header">
+      <a class="site-header__brand" href="index.html"
+        >[НАЗВА ПРОЄКТУ]<small class="site-header__subtitle"
+          >простори для життя</small
+        ></a
+      >
+      <nav class="site-nav" aria-label="Головна навігація">
+        <a
+          class="site-nav__link site-nav__link--active"
+          href="index.html"
+          aria-current="page"
+          >Головна</a
+        ><a class="site-nav__link" href="catalog.html">Колекція</a>
+      </nav>
+      <div class="site-header__tools">
+        <a class="site-header__contact" href="mailto:author@example.com"
+          >Запитати агента</a
+        >
+        <details
+          class="notification-menu"
+          data-component="notification-center"
+          data-endpoint="/api/notifications"
+        >
+          <summary
+            class="notification-menu__trigger"
+            aria-label="Відкрити сповіщення"
+          >
+            <svg
+              class="notification-menu__icon"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              aria-hidden="true"
+            >
+              <path
+                d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.8"
+              />
+            </svg>
+            <span
+              class="notification-menu__badge"
+              data-notification-count
+              aria-label="2 нові сповіщення"
+            >
+              2
+            </span>
+          </summary>
+          <div class="notification-menu__panel">
+            <div class="notification-menu__header">
+              <div>
+                <p class="notification-menu__eyebrow">Останні події</p>
+                <h2 class="notification-menu__title">Сповіщення</h2>
+              </div>
+              <button
+                class="notification-menu__clear"
+                type="button"
+                data-action="mark-all-read"
+              >
+                Прочитати всі
+              </button>
+            </div>
+            <ul
+              class="notification-menu__list"
+              data-notification-list
+              aria-live="polite"
+            >
+              <li
+                class="notification-menu__item notification-menu__item--unread"
+                data-notification-id="demo-request"
+                data-event="request.received"
+              >
+                <span class="notification-menu__dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Заявку прийнято</strong>
+                  <p>Ми отримали ваше звернення.</p>
+                  <time datetime="2026-09-26T08:00:00">щойно</time>
+                </div>
+                <button
+                  class="notification-menu__read"
+                  type="button"
+                  data-action="mark-read"
+                  aria-label="Позначити сповіщення як прочитане"
+                >
+                  ✓
+                </button>
+              </li>
+              <li
+                class="notification-menu__item"
+                data-notification-id="demo-offer"
+                data-event="offer.updated"
+              >
+                <span class="notification-menu__dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Пропозицію оновлено</strong>
+                  <p>Змінилися умови або доступність.</p>
+                  <time datetime="2026-09-26T07:48:00">12 хв тому</time>
+                </div>
+                <button
+                  class="notification-menu__read"
+                  type="button"
+                  data-action="mark-read"
+                  aria-label="Позначити сповіщення як прочитане"
+                >
+                  ✓
+                </button>
+              </li>
+              <li
+                class="notification-menu__empty"
+                data-notification-empty
+                hidden
+              >
+                Нових сповіщень немає.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </header>
+    <main class="page__main" id="main-content">
+      <section class="home-hero" aria-labelledby="home-title">
+        <div class="home-hero__copy">
+          <p class="eyebrow">Нерухомість · добірка № 02</p>
+          <h1 class="home-hero__title" id="home-title">
+            Знайдіть простір,<br />у якому хочеться <em>залишитися.</em>
+          </h1>
+          <p class="home-hero__lead">
+            Будинки й квартири з характером, зрозумілими умовами та чесно
+            поданими деталями.
+          </p>
+          <div class="home-hero__stats" aria-label="Статистика каталогу">
+            <p><strong>12</strong><span>об’єктів</span></p>
+            <p><strong>4</strong><span>райони</span></p>
+            <p><strong>24 год</strong><span>до перегляду</span></p>
+          </div>
+        </div>
+        <form class="search-panel" action="catalog.html" method="get">
+          <div class="search-panel__switch" aria-label="Тип операції">
+            <label
+              ><input type="radio" name="operation" value="rent" checked />
+              Оренда</label
+            ><label
+              ><input type="radio" name="operation" value="sale" />
+              Продаж</label
+            >
+          </div>
+          <div class="search-panel__fields">
+            <label class="field"
+              ><span class="field__label">Район</span
+              ><select class="field__control" name="district">
+                <option>Будь-який</option>
+                <option>Центр</option>
+                <option>Біля парку</option>
+              </select></label
+            ><label class="field"
+              ><span class="field__label">Тип житла</span
+              ><select class="field__control" name="type">
+                <option>Квартира</option>
+                <option>Будинок</option>
+                <option>Лофт</option>
+              </select></label
+            ><label class="field"
+              ><span class="field__label">Кімнати</span
+              ><select class="field__control" name="rooms">
+                <option>1–2</option>
+                <option>3</option>
+                <option>4+</option>
+              </select></label
+            ><label class="field"
+              ><span class="field__label">Бюджет, ₴</span
+              ><input
+                class="field__control"
+                type="number"
+                name="budget"
+                placeholder="до 50 000"
+                autocomplete="off"
+            /></label>
+          </div>
+          <button class="button button--wide" type="submit">
+            Знайти об’єкт
+          </button>
+        </form>
+      </section>
+      <section
+        class="home-section home-section--recommendations"
+        aria-labelledby="recommended-property-title"
+      >
+        <div class="home-section__heading">
+          <div>
+            <p class="eyebrow">Добірка редакції</p>
+            <h2 class="home-section__title" id="recommended-property-title">
+              Рекомендовані об’єкти
+            </h2>
+          </div>
+          <a class="text-link" href="catalog.html"
+            >Усі 12 об’єктів <span aria-hidden="true">→</span></a
+          >
+        </div>
+        <div class="home-card-grid">
+          <article class="catalog-card catalog-card--featured home-card">
+            <a class="home-card__media atlas-frame" href="show.html"
+              ><img
+                class="catalog-card__image atlas-frame__image atlas-frame__image--first"
+                src="images/catalog-atlas.png"
+                alt="Пентхаус із панорамними вікнами"
+                width="1774"
+                height="887"
+                loading="lazy"
+              /><span class="home-card__badge">Вибір редакції</span></a
+            >
+            <div class="home-card__body">
+              <p class="catalog-card__eyebrow">Продаж · Печерськ</p>
+              <h3 class="catalog-card__title">
+                Пентхаус із панорамою на місто
+              </h3>
+              <p class="catalog-card__description">
+                120 м² · 3 кімнати · 21 поверх
+              </p>
+              <div class="home-card__footer">
+                <strong class="catalog-card__price">18 500 000 ₴</strong
+                ><a class="text-link" href="show.html">Переглянути ↗</a>
+              </div>
+            </div>
+          </article>
+          <article class="catalog-card home-card">
+            <a class="home-card__media atlas-frame" href="show.html"
+              ><img
+                class="catalog-card__image atlas-frame__image atlas-frame__image--second"
+                src="images/catalog-atlas.png"
+                alt="Сучасний будинок серед сосен"
+                width="1774"
+                height="887"
+                loading="lazy"
+              /><span class="home-card__badge home-card__badge--sage"
+                >Новий об’єкт</span
+              ></a
+            >
+            <div class="home-card__body">
+              <p class="catalog-card__eyebrow">Продаж · Передмістя</p>
+              <h3 class="catalog-card__title">Будинок серед сосен</h3>
+              <p class="catalog-card__description">
+                164 м² · 4 кімнати · приватний сад
+              </p>
+              <div class="home-card__footer">
+                <strong class="catalog-card__price">12 900 000 ₴</strong
+                ><a class="text-link" href="show.html">Переглянути ↗</a>
+              </div>
+            </div>
+          </article>
+          <article class="catalog-card home-card">
+            <a class="home-card__media atlas-frame" href="show.html"
+              ><img
+                class="catalog-card__image atlas-frame__image atlas-frame__image--third"
+                src="images/catalog-atlas.png"
+                alt="Лофт у старому кварталі"
+                width="1774"
+                height="887"
+                loading="lazy"
+              /><span class="home-card__badge">Для оренди</span></a
+            >
+            <div class="home-card__body">
+              <p class="catalog-card__eyebrow">Оренда · Старе місто</p>
+              <h3 class="catalog-card__title">Лофт у старому кварталі</h3>
+              <p class="catalog-card__description">
+                82 м² · 2 кімнати · відкрите планування
+              </p>
+              <div class="home-card__footer">
+                <strong class="catalog-card__price">42 000 ₴ / міс.</strong
+                ><a class="text-link" href="show.html">Переглянути ↗</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section
+        class="home-feature"
+        id="featured"
+        aria-labelledby="feature-title"
+      >
+        <div class="atlas-frame atlas-frame--home">
+          <img
+            class="atlas-frame__image atlas-frame__image--first"
+            src="images/catalog-atlas.png"
+            alt="Світла вітальня пентхауса з панорамними вікнами"
+            width="1774"
+            height="887"
+            loading="lazy"
+          />
+        </div>
+        <div class="home-feature__content">
+          <p class="eyebrow">Об’єкт тижня · продаж</p>
+          <h2 class="home-feature__title" id="feature-title">
+            Пентхаус із панорамою на місто
+          </h2>
+          <p>
+            Тихий верхній поверх, природні матеріали та простір, у якому світло
+            визначає ритм дня.
+          </p>
+          <dl class="property-meta">
+            <div>
+              <dt>Площа</dt>
+              <dd>120 м²</dd>
+            </div>
+            <div>
+              <dt>Кімнати</dt>
+              <dd>3</dd>
+            </div>
+            <div>
+              <dt>Поверх</dt>
+              <dd>21</dd>
+            </div>
+          </dl>
+          <strong class="home-feature__price">18 500 000 ₴</strong>
+          <a class="button" href="show.html">Переглянути об’єкт</a>
+        </div>
+      </section>
+    </main>
+    <section class="partners" aria-labelledby="partners-title">
+      <div class="partners__heading">
+        <div>
+          <p class="partners__eyebrow">Співпраця</p>
+          <h2 class="partners__title" id="partners-title">Наші партнери</h2>
+        </div>
+        <p class="partners__text">
+          Компанії, які допомагають перевіряти пропозиції, організовувати
+          отримання та підтримувати якість сервісу.
+        </p>
+      </div>
+      <div class="partners__slider" data-partners-slider>
+        <button
+          class="partners__control"
+          type="button"
+          data-action="partners-previous"
+          aria-label="Показати попередні логотипи"
+          aria-controls="partners-viewport"
+          disabled
+        >
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path
+              d="m15 5-7 7 7 7"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+        <div
+          class="partners__viewport"
+          id="partners-viewport"
+          data-partners-viewport
+          role="region"
+          aria-label="Логотипи партнерів"
+          tabindex="0"
+        >
+          <div class="partners__track">
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-nova"></use>
+              </svg>
+              <span class="partner-logo__name">NOVA</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-orbit"></use>
+              </svg>
+              <span class="partner-logo__name">ORBIT</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-vector"></use>
+              </svg>
+              <span class="partner-logo__name">VECTOR</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-form"></use>
+              </svg>
+              <span class="partner-logo__name">FORMA</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-pulse"></use>
+              </svg>
+              <span class="partner-logo__name">PULSE</span>
+            </div>
+            <div class="partner-logo">
+              <svg
+                class="partner-logo__icon"
+                width="76"
+                height="76"
+                aria-hidden="true"
+              >
+                <use href="images/partner-logos.svg#logo-nexus"></use>
+              </svg>
+              <span class="partner-logo__name">NEXUS</span>
+            </div>
+          </div>
+        </div>
+        <button
+          class="partners__control"
+          type="button"
+          data-action="partners-next"
+          aria-label="Показати наступні логотипи"
+          aria-controls="partners-viewport"
+        >
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path
+              d="m9 5 7 7-7 7"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </button>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <p class="site-footer__text">[ПІБ] · [ГРУПА]</p>
+      <p class="site-footer__meta">Варіант [№] · Property Editorial</p>
+    </footer>
+  </body>
+</html>
