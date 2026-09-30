@@ -6,3 +6,4 @@
 
 - [Лабораторна робота № 2 (денна форма), № 1 (заочна форма)](labs/02-components-reactivity/starter/)
 - [Лабораторна робота № 4](labs/04-slots-provide/starter/)
+- [Лабораторна робота № 5](labs/05-composables/starter/)
